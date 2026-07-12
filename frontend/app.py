@@ -1,5 +1,5 @@
 """
-NeerNiti — AI Water Equity Analytics
+WaterPulse — AI Water Equity Analytics
 IBM Granite + watsonx.ai + RAG | MIS 78th Round | SDG 6.1
 """
 
@@ -12,7 +12,7 @@ import os
 
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="NeerNiti — Water AI",
+    page_title="WaterPulse — Water AI",
     page_icon="💧",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -314,7 +314,7 @@ def ask_granite(question, context):
     try:
         token = get_iam_token(WATSONX_API_KEY)
         prompt = f"""<|system|>
-You are NeerNiti, an AI assistant specialising in India's drinking water access data from MIS 78th Round (2020-21). Answer using only the provided context. Cite specific percentages. Be concise and policy-focused.
+You are WaterPulse, an AI assistant specialising in India's drinking water access data from MIS 78th Round (2020-21). Answer using only the provided context. Cite specific percentages. Be concise and policy-focused.
 <|user|>
 Context:
 {context}
@@ -686,11 +686,11 @@ if current_tab == "about":
     col_a, col_b = st.columns(2)
     with col_a:
         st.markdown("""
-### 💧 About NeerNiti
+### 💧 About WaterPulse
 
 **Problem Statement No. 38** — Edunet Foundation × IBM
 
-NeerNiti is a zero-cost AI analytics platform that turns India's **MIS 78th Round** survey data
+WaterPulse is a zero-cost AI analytics platform that turns India's **MIS 78th Round** survey data
 into live, actionable water equity insights for policymakers, NGOs and citizens.
 
 **Key Features:**
@@ -719,7 +719,7 @@ into live, actionable water equity insights for policymakers, NGOs and citizens.
         """)
 
     st.markdown("---")
-    st.caption("NeerNiti v2.0 · MIT License · Edunet Foundation · Problem Statement No. 38 · IBM Cloud Lite")
+    st.caption("WaterPulse v2.0 · MIT License · Edunet Foundation · Problem Statement No. 38 · IBM Cloud Lite")
 
 st.markdown("</div>", unsafe_allow_html=True)
 

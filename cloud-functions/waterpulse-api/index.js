@@ -1,5 +1,5 @@
 /**
- * JalDrishti — IBM Cloud Functions Handler  (v2.0 — Granite RAG Edition)
+ * WaterPulse — IBM Cloud Functions Handler  (v2.0 — Granite RAG Edition)
  * Platform: IBM Cloud Functions (Lite: 400,000 GB-s/month, 5M invocations free)
  *
  * Actions:
@@ -74,7 +74,7 @@ async function getStateStats(params) {
       SELECT state_name, year, rural_pct, urban_pct, total_pct,
              equity_gap, sdg61_proxy, yoy_change, sdg_risk_flag,
              cook_rural_pct, cook_urban_pct, migration_rate
-      FROM JALDRISHTI.STATE_WATER_METRICS
+      FROM WATERPULSE.STATE_WATER_METRICS
       WHERE state_code = ?
         AND year = ?
       FETCH FIRST 1 ROW ONLY
@@ -203,7 +203,7 @@ async function listPriorityStates(params) {
     const query = `
       SELECT state_name, rural_pct, urban_pct, equity_gap,
              sdg61_proxy, sdg_risk_flag, migration_rate
-      FROM JALDRISHTI.STATE_WATER_METRICS
+      FROM WATERPULSE.STATE_WATER_METRICS
       WHERE year = ?
       ORDER BY sdg61_proxy ASC
       FETCH FIRST ${parseInt(topN)} ROWS ONLY
@@ -305,7 +305,7 @@ async function getNLQuery(params) {
       WATSONX_URL:        params.WATSONX_URL || 'https://us-south.ml.cloud.ibm.com',
       WATSONX_PROJECT_ID: params.WATSONX_PROJECT_ID,
       COS_ENDPOINT:       params.COS_ENDPOINT || 'https://s3.us-south.cloud-object-storage.appdomain.cloud',
-      COS_BUCKET:         params.COS_BUCKET   || 'jaldrishti-raw-data'
+      COS_BUCKET:         params.COS_BUCKET   || 'waterpulse-raw-data'
     });
 
     return {
@@ -357,7 +357,7 @@ async function main(params) {
       return {
         statusCode: 200,
         body: {
-          service: 'JalDrishti API',
+          service: 'WaterPulse API',
           version: '1.0.0',
           endpoints: ['/stats','/predict','/priority','/nlquery']
         }

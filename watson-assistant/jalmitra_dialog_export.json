@@ -169,14 +169,14 @@
         }]
       },
       "actions": [{
-        "name": "jaldrishti/getNLQuery",
+        "name": "waterpulse/getNLQuery",
         "type": "cloud_function",
         "parameters": {
           "intent": "query_water_access",
           "entities": "$entities"
         },
         "result_variable": "context.water_data",
-        "credentials": "$private.jaldrishti_cf_credentials"
+        "credentials": "$private.waterpulse_cf_credentials"
       }],
       "next_step": {
         "behavior": "jump_to",
@@ -198,7 +198,7 @@
       "dialog_node": "Query_Priority_States",
       "conditions": "#query_priority_states",
       "actions": [{
-        "name": "jaldrishti/getNLQuery",
+        "name": "waterpulse/getNLQuery",
         "type": "cloud_function",
         "parameters": {
           "intent": "query_priority_states",
@@ -217,7 +217,7 @@
       "dialog_node": "Query_Equity_Gap",
       "conditions": "#query_equity_gap",
       "actions": [{
-        "name": "jaldrishti/getNLQuery",
+        "name": "waterpulse/getNLQuery",
         "type": "cloud_function",
         "parameters": {
           "intent": "query_equity_gap",
@@ -236,7 +236,7 @@
       "dialog_node": "Query_SDG_Status",
       "conditions": "#query_sdg_status",
       "actions": [{
-        "name": "jaldrishti/getNLQuery",
+        "name": "waterpulse/getNLQuery",
         "type": "cloud_function",
         "parameters": {
           "intent": "query_sdg_status",

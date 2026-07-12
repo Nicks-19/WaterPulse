@@ -1,5 +1,5 @@
 """
-JalDrishti — Node-RED Flow (exported as JSON)
+WaterPulse — Node-RED Flow (exported as JSON)
 Orchestrates: Data Refresh → Db2 Update → Dashboard Trigger
 Platform: IBM Cloud Foundry (Lite: 256 MB RAM, 1 instance)
 
@@ -21,7 +21,7 @@ NODERED_FLOW = [
   {
     "id": "flow1",
     "type": "tab",
-    "label": "JalDrishti Data Refresh",
+    "label": "WaterPulse Data Refresh",
     "disabled": False,
     "info": "Scheduled daily refresh of water metrics data"
   },
@@ -43,7 +43,7 @@ NODERED_FLOW = [
     "z": "flow1",
     "name": "Build COS Request",
     "func": """
-msg.url = 'https://s3.us-south.cloud-object-storage.appdomain.cloud/jaldrishti-raw-data/cleaned/jaldrishti_master_cleaned.csv';
+msg.url = 'https://s3.us-south.cloud-object-storage.appdomain.cloud/waterpulse-raw-data/cleaned/waterpulse_master_cleaned.csv';
 msg.headers = { Authorization: 'Bearer ' + global.get('iam_token') };
 return msg;
 """,
@@ -86,7 +86,7 @@ return msg;
     "name": "Trigger CF Refresh",
     "method": "POST",
     "ret": "obj",
-    "url": "https://us-south.functions.cloud.ibm.com/api/v1/web/YOUR_NAMESPACE/jaldrishti/refreshData.json",
+    "url": "https://us-south.functions.cloud.ibm.com/api/v1/web/YOUR_NAMESPACE/waterpulse/refreshData.json",
     "wires": [["debug_refresh"]]
   },
   {
@@ -139,7 +139,7 @@ return msg;
     "name": "Call CF nlquery",
     "method": "POST",
     "ret": "obj",
-    "url": "https://us-south.functions.cloud.ibm.com/api/v1/web/YOUR_NAMESPACE/jaldrishti/getNLQuery.json",
+    "url": "https://us-south.functions.cloud.ibm.com/api/v1/web/YOUR_NAMESPACE/waterpulse/getNLQuery.json",
     "wires": [["func_format_wa_resp"]]
   },
   {
@@ -195,7 +195,7 @@ return msg;
     "func": """
 const stateCode = msg.req.query.stateCode || '10';
 const year      = msg.req.query.year || '2023';
-msg.url = 'https://us-south.functions.cloud.ibm.com/api/v1/web/YOUR_NAMESPACE/jaldrishti/getStateStats.json' +
+msg.url = 'https://us-south.functions.cloud.ibm.com/api/v1/web/YOUR_NAMESPACE/waterpulse/getStateStats.json' +
           '?stateCode=' + stateCode + '&year=' + year;
 return msg;
 """,

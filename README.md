@@ -1,4 +1,4 @@
-# 💧 NeerNiti — नीरनीति
+# 💧 WaterPulse — नीरनीति
 ## AI-Driven Analytics Platform for Equitable Access to Improved Drinking Water Sources in India
 
 > **Neer** (नीर) = Water · **Niti** (नीति) = Policy / Wisdom  
@@ -25,17 +25,17 @@
 ## Repository Structure
 
 ```
-jaldrishti/
+waterpulse/
 ├── notebooks/
 │   ├── 01_etl_cleaning.ipynb          # COS → Db2 ETL, equity_gap/sdg61_proxy derived features
 │   ├── 02_ml_training.ipynb           # GBT classifier + K-Means + Ridge → watsonx.ai deploy
 │   └── 03_rag_pipeline.ipynb          # FAISS index build + Granite 3.2 end-to-end RAG test
-├── cloud-functions/jaldrishti-api/
+├── cloud-functions/waterpulse-api/
 │   ├── index.js                       # 4 REST endpoints: getStateStats/getPrediction/listPriority/getNLQuery
 │   ├── rag_handler.js                 # IAM token cache + FAISS cosine sim + Granite generation
 │   └── package.json                   # v2.0, GRANITE_MODEL_ID env var
 ├── frontend/
-│   ├── app.py                         # Streamlit NeerNiti UI — dark theme, 5 tabs
+│   ├── app.py                         # Streamlit WaterPulse UI — dark theme, 5 tabs
 │   ├── requirements.txt               # streamlit, requests, plotly, pandas
 │   └── .streamlit/secrets.toml.example
 ├── dashboard/
@@ -49,11 +49,11 @@ jaldrishti/
 ├── data/
 │   └── mis_78_sample.csv              # 36 states × rural/urban/social groups
 ├── architecture/
-│   └── jaldrishti_architecture.svg
+│   └── waterpulse_architecture.svg
 ├── report/
-│   └── jaldrishti_project_report.md   # Full evaluation-criteria-mapped project report
+│   └── waterpulse_project_report.md   # Full evaluation-criteria-mapped project report
 ├── slides/
-│   └── jaldrishti_deck_outline.md     # 14-slide deck outline
+│   └── waterpulse_deck_outline.md     # 14-slide deck outline
 ├── .gitignore
 └── README.md
 ```
@@ -64,8 +64,8 @@ jaldrishti/
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/neerniti.git
-cd neerniti
+git clone https://github.com/YOUR_USERNAME/waterpulse.git
+cd waterpulse
 
 # Install Streamlit dependencies
 pip install -r frontend/requirements.txt
@@ -93,9 +93,9 @@ ibmcloud plugin install cloud-foundry
 ```
 
 From IBM Cloud Catalog (all Lite/free tier):
-- **Cloud Object Storage** → bucket: `neerniti-data` (us-south)
+- **Cloud Object Storage** → bucket: `waterpulse-data` (us-south)
 - **Db2 on Cloud** → Lite → note hostname, port, credentials
-- **Watson Studio** → Lite → project: "NeerNiti"
+- **Watson Studio** → Lite → project: "WaterPulse"
 - **watsonx.ai** → associate with Studio project → note **Project ID**
 - **Watson Assistant** → Lite → assistant: "JalMitra"
 - **Cloud Foundry** → create org and space
@@ -104,7 +104,7 @@ From IBM Cloud Catalog (all Lite/free tier):
 
 ```bash
 ibmcloud cos object-put \
-  --bucket neerniti-data \
+  --bucket waterpulse-data \
   --key mis_78_sample.csv \
   --body ./data/mis_78_sample.csv
 ```
@@ -124,18 +124,18 @@ WX_URL            = 'https://us-south.ml.cloud.ibm.com'  # or your region
 ### Step 4 — Run Notebooks in Order (Watson Studio)
 
 1. Upload all 3 notebooks to Watson Studio
-2. Run `01_etl_cleaning.ipynb` → populates `NEERNITI.STATE_WATER_METRICS` in Db2
+2. Run `01_etl_cleaning.ipynb` → populates `WATERPULSE.STATE_WATER_METRICS` in Db2
 3. Run `02_ml_training.ipynb` → trains 3 models, deploys to watsonx.ai
 4. Run `03_rag_pipeline.ipynb` → builds FAISS index, saves to COS, tests Granite RAG
 
 ### Step 5 — Deploy Cloud Functions
 
 ```bash
-cd cloud-functions/jaldrishti-api
+cd cloud-functions/waterpulse-api
 npm install
 
-ibmcloud fn namespace create neerniti-ns
-ibmcloud fn action update neerniti/api index.js \
+ibmcloud fn namespace create waterpulse-ns
+ibmcloud fn action update waterpulse/api index.js \
   --kind nodejs:16 --web true \
   --param DB2_HOST YOUR_DB2_HOST \
   --param DB2_UID YOUR_DB2_UID \
@@ -145,7 +145,7 @@ ibmcloud fn action update neerniti/api index.js \
   --param WATSONX_PROJECT_ID YOUR_PROJECT_ID \
   --param GRANITE_MODEL_ID ibm/granite-3-2-8b-instruct
 
-ibmcloud fn action get neerniti/api --url
+ibmcloud fn action get waterpulse/api --url
 ```
 
 ### Step 6 — Import Watson Assistant Skill
@@ -158,18 +158,18 @@ ibmcloud fn action get neerniti/api --url
 
 ```bash
 cd dashboard
-ibmcloud cf push neerniti-dashboard \
+ibmcloud cf push waterpulse-dashboard \
   -f manifest.yml -m 64M -i 1 \
   --buildpack staticfile_buildpack
 ```
 
-Dashboard URL: `https://neerniti-dashboard.mybluemix.net`
+Dashboard URL: `https://waterpulse-dashboard.mybluemix.net`
 
 ---
 
 ## Granite LLM Configuration
 
-NeerNiti uses **IBM Granite 3.2 8B Instruct** via watsonx.ai RAG pipeline.
+WaterPulse uses **IBM Granite 3.2 8B Instruct** via watsonx.ai RAG pipeline.
 
 | Parameter | Value |
 |---|---|
@@ -192,18 +192,18 @@ Alternative models (if Granite unavailable in your region):
 - **Jharkhand (58%)** and **Bihar (62%)** are CRITICAL risk states for SDG 6.1
 - States with **<60% clean cooking fuel** show systematically **>15% water equity gap**
 - **ST households** across 12 states average **55–60%** — lowest of all social groups
-- NeerNiti reduces analysis time from **2 weeks → 30 seconds**
+- WaterPulse reduces analysis time from **2 weeks → 30 seconds**
 
 ---
 
 ## Presentation
 
-The full 14-slide NeerNiti deck covers:
+The full 14-slide WaterPulse deck covers:
 1. Title | 2. Problem | 3. Dataset | 4. Architecture | 5. IBM Services
 6. RAG Pipeline | 7. ML Models | 8. JalMitra Demo | 9. Impact
 10. Scalability | 11. Commercial Viability | 12. Roadmap | 13. Demo Links | 14. Conclusion
 
-**Submission file:** `NeerNiti_updated.pptx` (export deck with "updated" in filename per professor requirement)
+**Submission file:** `WaterPulse_updated.pptx` (export deck with "updated" in filename per professor requirement)
 
 ---
 
@@ -213,4 +213,4 @@ MIT License — Open Government Data (MIS 78th Round) used under OGD Platform In
 
 ---
 
-*NeerNiti · Edunet Foundation Problem Statement #38 · IBM Cloud Lite · Streamlit · IBM Granite 3.2*
+*WaterPulse · Edunet Foundation Problem Statement #38 · IBM Cloud Lite · Streamlit · IBM Granite 3.2*

@@ -1,5 +1,5 @@
 /**
- * JalDrishti — RAG Query Handler
+ * WaterPulse — RAG Query Handler
  *
  * This module implements the full Retrieval-Augmented Generation pipeline for JalMitra:
  *

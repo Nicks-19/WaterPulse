@@ -358,7 +358,7 @@ def nav_link(tab_id, label):
 
 st.markdown(f"""
 <div class="navbar">
-  <div class="nav-brand">💧 Neer<em>Niti</em></div>
+  <div class="nav-brand">💧 WaterPulse</div>
   <div class="nav-links">
     {nav_link('dashboard', 'Dashboard')}
     {nav_link('jalmitra', 'JalMitra AI')}
@@ -374,7 +374,7 @@ if current_tab == "dashboard":
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-tag">Edunet Foundation · Problem Statement No. 38 · IBM Cloud Lite</div>
-    <div class="hero-title">💧 Neer<em>Niti</em> — Water Equity <em>Analytics</em></div>
+    <div class="hero-title">💧 WaterPulse — Water Equity <em>Analytics</em></div>
     <div class="hero-sub">AI-Driven Platform for SDG 6.1 · IBM Granite 3.2 8B · watsonx.ai RAG Pipeline · MIS 78th Round</div>
     <div class="hero-stats">
       <div class="hstat"><div class="hn">36</div><div class="hl">States / UTs</div></div>

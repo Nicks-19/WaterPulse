@@ -1,0 +1,141 @@
+<html lang="en"><head><meta charset="UTF-8" /><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0d1b35;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(86,207,178,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(86,207,178,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.wrap{position:relative;z-index:1;padding:28px 48px;flex:1}
+.tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#56cfb2;margin-bottom:7px}
+.h2{font-size:26px;font-weight:800;margin-bottom:6px}
+.h2 em{color:#56cfb2;font-style:normal}
+.div{width:40px;height:3px;background:#56cfb2;border-radius:2px;margin-bottom:18px}
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.icard{border-radius:12px;padding:20px;border:1px solid;position:relative;overflow:hidden}
+.icard::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;opacity:.06}
+.icard .num{font-size:38px;font-weight:900;line-height:1;margin-bottom:6px}
+.icard .title{font-size:13px;font-weight:700;margin-bottom:8px}
+.icard .desc{font-size:11px;color:#94a3c8;line-height:1.6}
+.icard .desc strong{color:#fff}
+.icard .tag2{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;display:block}
+
+.c1{background:rgba(86,207,178,.06);border-color:rgba(86,207,178,.28)}
+.c1::before{background:#56cfb2}.c1 .num{color:#56cfb2}.c1 .tag2{color:#56cfb2}
+.c2{background:rgba(96,165,250,.06);border-color:rgba(96,165,250,.28)}
+.c2::before{background:#60a5fa}.c2 .num{color:#60a5fa}.c2 .tag2{color:#60a5fa}
+.c3{background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.28)}
+.c3::before{background:#a78bfa}.c3 .num{color:#a78bfa}.c3 .tag2{color:#a78bfa}
+.c4{background:rgba(248,113,113,.06);border-color:rgba(248,113,113,.28)}
+.c4::before{background:#f87171}.c4 .num{color:#f87171}.c4 .tag2{color:#f87171}
+
+/* MINI SCATTER DOTS */
+.scatter{margin-top:10px;width:100%;height:60px;position:relative;background:rgba(0,0,0,.2);border-radius:6px;overflow:hidden}
+.dot-s{position:absolute;width:8px;height:8px;border-radius:50%}
+
+/* CORRELATION BAR */
+.cor{margin-top:10px}
+.cor-label{font-size:9px;color:#64748b;margin-bottom:4px}
+.cor-track{height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden}
+.cor-fill{height:100%;border-radius:4px}
+.cor-val{font-size:10px;font-weight:700;margin-top:3px}
+
+.foot{padding:10px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:10px;color:#334155}
+.foot em{color:#56cfb2;font-style:normal;font-weight:700}
+</style></head><body>
+<div class="grid"></div>
+<div class="wrap">
+  <div class="tag">Analytical Findings</div>
+  <div class="h2">4 Novel Insights from <em>MIS 78th Round Data</em></div>
+  <div class="div"></div>
+  <div class="grid4">
+
+    <div class="icard c1">
+      <span class="tag2">Finding 1 — Water Equity Gap</span>
+      <div class="num">15–30 pp</div>
+      <div class="title">Rural-Urban Disparity Across 10 States</div>
+      <div class="desc">Jharkhand worst: <strong>31.4 pp gap</strong>. Bihar ST rural: <strong>42.1%</strong> vs 94.5% national average. Social groups masked in aggregates.</div>
+      <div style="margin-top:10px">
+        <div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">
+          <div style="font-size:9px;color:#64748b;width:60px">Jharkhand</div>
+          <div style="flex:1;height:7px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden"><div style="width:89%;height:100%;background:#ef4444;border-radius:3px"></div></div>
+          <div style="font-size:9px;color:#f87171;font-weight:700">31.4%</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">
+          <div style="font-size:9px;color:#64748b;width:60px">Bihar</div>
+          <div style="flex:1;height:7px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden"><div style="width:72%;height:100%;background:#f97316;border-radius:3px"></div></div>
+          <div style="font-size:9px;color:#fbbf24;font-weight:700">25.6%</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center">
+          <div style="font-size:9px;color:#64748b;width:60px">Rajasthan</div>
+          <div style="flex:1;height:7px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden"><div style="width:68%;height:100%;background:#f59e0b;border-radius:3px"></div></div>
+          <div style="font-size:9px;color:#fbbf24;font-weight:700">23.8%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="icard c2">
+      <span class="tag2">Finding 2 — Cooking Fuel Correlation</span>
+      <div class="num">r ≈ 0.78</div>
+      <div class="title">Clean Fuel % vs Rural Water Access %</div>
+      <div class="desc">States with <strong>&lt;45% rural clean cooking fuel</strong> also have <strong>&lt;70% rural water access</strong>. Enables bundled SDG 6 + SDG 7 interventions.</div>
+      <div class="scatter">
+        <div class="dot-s" style="left:15%;top:75%;background:#ef4444"></div>
+        <div class="dot-s" style="left:22%;top:65%;background:#f87171"></div>
+        <div class="dot-s" style="left:28%;top:58%;background:#ef4444"></div>
+        <div class="dot-s" style="left:35%;top:50%;background:#f59e0b"></div>
+        <div class="dot-s" style="left:45%;top:42%;background:#f59e0b"></div>
+        <div class="dot-s" style="left:55%;top:32%;background:#10b981"></div>
+        <div class="dot-s" style="left:65%;top:22%;background:#10b981"></div>
+        <div class="dot-s" style="left:75%;top:15%;background:#10b981"></div>
+        <div class="dot-s" style="left:82%;top:10%;background:#10b981"></div>
+        <div style="position:absolute;bottom:4px;left:6px;font-size:8px;color:#475569">Cook Fuel % →</div>
+        <div style="position:absolute;top:4px;left:6px;font-size:8px;color:#475569">↑ Rural Water %</div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%"><line x1="10%" y1="85%" x2="90%" y2="8%" stroke="#60a5fa" stroke-width="1.5" opacity=".5"></line></svg>
+      </div>
+    </div>
+
+    <div class="icard c3">
+      <span class="tag2">Finding 3 — Migration–Water Nexus</span>
+      <div class="num">r ≈ +0.61</div>
+      <div class="title">Out-Migration Correlates with Water Stress</div>
+      <div class="desc">High out-migration states (Bihar, UP, Jharkhand) have <strong>lowest rural water coverage</strong>. Migration is partly driven by <strong>resource stress</strong> — multi-SDG root cause.</div>
+      <div class="scatter">
+        <div class="dot-s" style="left:70%;top:12%;background:#a78bfa"></div>
+        <div class="dot-s" style="left:65%;top:18%;background:#a78bfa"></div>
+        <div class="dot-s" style="left:55%;top:25%;background:#a78bfa"></div>
+        <div class="dot-s" style="left:40%;top:40%;background:#818cf8"></div>
+        <div class="dot-s" style="left:28%;top:55%;background:#6366f1"></div>
+        <div class="dot-s" style="left:20%;top:65%;background:#4f46e5"></div>
+        <div class="dot-s" style="left:15%;top:72%;background:#4338ca"></div>
+        <div style="position:absolute;bottom:4px;left:6px;font-size:8px;color:#475569">Migration Rate % →</div>
+        <div style="position:absolute;top:4px;left:6px;font-size:8px;color:#475569">↑ Rural Water %</div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%"><line x1="12%" y1="78%" x2="75%" y2="10%" stroke="#a78bfa" stroke-width="1.5" opacity=".5"></line></svg>
+      </div>
+    </div>
+
+    <div class="icard c4">
+      <span class="tag2">Finding 4 — SDG Risk States (ML)</span>
+      <div class="num">8–12 States</div>
+      <div class="title">GBT Classifier Identifies At-Risk States</div>
+      <div class="desc">F1≈88% classifier flags Jharkhand and Bihar as <strong>CRITICAL</strong> (proxy &lt;70%). K-Means assigns both to <strong>Tier D</strong>. 12 of 27 states need accelerated action.</div>
+      <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);border-radius:6px;padding:7px;text-align:center">
+          <div style="font-size:16px;font-weight:900;color:#f87171">12</div>
+          <div style="font-size:9px;color:#64748b">At Risk States</div>
+        </div>
+        <div style="background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.22);border-radius:6px;padding:7px;text-align:center">
+          <div style="font-size:16px;font-weight:900;color:#34d399">15</div>
+          <div style="font-size:9px;color:#64748b">On Track States</div>
+        </div>
+        <div style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);border-radius:6px;padding:7px;text-align:center">
+          <div style="font-size:13px;font-weight:900;color:#f87171">Tier D</div>
+          <div style="font-size:9px;color:#64748b">Jharkhand · Bihar</div>
+        </div>
+        <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.22);border-radius:6px;padding:7px;text-align:center">
+          <div style="font-size:13px;font-weight:900;color:#fbbf24">≈88%</div>
+          <div style="font-size:9px;color:#64748b">Classifier F1</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="foot"><em>JalDrishti v2.0</em><span>Slide 10 / 14 — Key Findings</span></div>
+</body></html>

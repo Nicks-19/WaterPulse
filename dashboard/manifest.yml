@@ -1,0 +1,9 @@
+applications:
+- name: jaldrishti-dashboard
+  memory: 64M
+  instances: 1
+  buildpack: staticfile_buildpack
+  path: .
+  env:
+    CF_API_BASE: "https://us-south.functions.cloud.ibm.com/api/v1/web/YOUR_NAMESPACE/jaldrishti"
+    NODERED_BASE: "https://jaldrishti-nodered.mybluemix.net"

@@ -1,0 +1,135 @@
+<html lang="en"><head><meta charset="UTF-8" /><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0a1628;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(86,207,178,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(86,207,178,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.wrap{position:relative;z-index:1;padding:28px 48px;flex:1}
+.tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#56cfb2;margin-bottom:7px}
+.h2{font-size:26px;font-weight:800;margin-bottom:6px}
+.h2 em{color:#56cfb2;font-style:normal}
+.div{width:40px;height:3px;background:#56cfb2;border-radius:2px;margin-bottom:20px}
+.layer-label{font-size:9px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;margin-top:4px}
+
+/* NODES */
+.row{display:flex;align-items:center;gap:0;margin-bottom:6px;flex-wrap:wrap}
+.node{border-radius:8px;padding:9px 14px;text-align:center;border:1px solid;min-width:100px}
+.node .nt{font-size:11px;font-weight:700}
+.node .ns{font-size:9px;margin-top:2px;opacity:.7}
+.n-teal{background:rgba(86,207,178,.1);border-color:rgba(86,207,178,.4);color:#56cfb2}
+.n-teal .ns{color:#56cfb2}
+.n-blue{background:rgba(96,165,250,.08);border-color:rgba(96,165,250,.3);color:#60a5fa}
+.n-blue .ns{color:#60a5fa}
+.n-purple{background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.3);color:#a78bfa}
+.n-purple .ns{color:#a78bfa}
+.n-gray{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#cbd5e1}
+.n-gray .ns{color:#64748b}
+.n-amber{background:rgba(251,191,36,.06);border-color:rgba(251,191,36,.25);color:#fbbf24}
+.n-amber .ns{color:#fbbf24}
+.n-green{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.3);color:#34d399}
+.n-green .ns{color:#34d399}
+
+/* ARROWS */
+.arr{padding:0 6px;font-size:18px;font-weight:700;color:#56cfb2;flex-shrink:0}
+.arr.gray{color:#475569}
+.arr.purple{color:#a78bfa}
+.arr.down{transform:rotate(90deg);display:block;text-align:center;color:#475569;font-size:14px;margin:2px 0 2px 60px}
+
+/* LAYER DIVIDER */
+.ld{border-top:1px dashed rgba(255,255,255,.07);margin:10px 0 6px}
+
+/* SPLIT ROW */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.split-col{display:flex;flex-direction:column;gap:6px}
+.split-label{font-size:9px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+
+/* LEGEND */
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06)}
+.leg{display:flex;align-items:center;gap:6px;font-size:10px;color:#64748b}
+.leg .dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+.foot{padding:10px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:10px;color:#334155}
+.foot em{color:#56cfb2;font-style:normal;font-weight:700}
+</style></head><body>
+<div class="grid"></div>
+<div class="wrap">
+  <div class="tag">Architecture — v2.0</div>
+  <div class="h2">Zero-Cost, <em>Zero-Compromise</em> End-to-End Pipeline</div>
+  <div class="div"></div>
+
+  
+  <div class="layer-label">⬤ Layer 1 — Data Ingest &amp; Store</div>
+  <div class="row">
+    <div class="node n-teal"><div class="nt">🌐 AI Kosh</div><div class="ns">MIS 78th Round CSV</div></div>
+    <div class="arr">→</div>
+    <div class="node n-blue"><div class="nt">☁ Cloud Object Storage</div><div class="ns">25 GB Lite · jaldrishti-raw-data</div></div>
+    <div class="arr">→</div>
+    <div class="node n-gray"><div class="nt">📓 Watson Studio</div><div class="ns">01_etl_cleaning.ipynb · ~5 min</div></div>
+    <div class="arr">→</div>
+    <div class="node n-blue"><div class="nt">🗄 Db2 on Cloud</div><div class="ns">STATE_WATER_METRICS · 36×14</div></div>
+  </div>
+
+  <div class="ld"></div>
+
+  
+  <div class="layer-label">⬤ Layer 2 — ML Training + RAG Pipeline (NEW in v2.0)</div>
+  <div class="split">
+    <div class="split-col">
+      <div class="split-label">ML Branch</div>
+      <div class="row">
+        <div class="node n-gray" style="min-width:80px"><div class="nt">📓 Watson Studio</div><div class="ns">02_ml_training.ipynb</div></div>
+        <div class="arr">→</div>
+        <div class="node n-teal"><div class="nt">🤖 watsonx.ai</div><div class="ns">GBT + Ridge + K-Means Deploy</div></div>
+      </div>
+    </div>
+    <div class="split-col">
+      <div class="split-label" style="color:#a78bfa">RAG Branch ✦ NEW</div>
+      <div class="row">
+        <div class="node n-purple" style="min-width:80px"><div class="nt">📓 Watson Studio</div><div class="ns">03_rag_pipeline.ipynb</div></div>
+        <div class="arr purple">→</div>
+        <div class="node n-purple"><div class="nt">🔍 Slate-125M Embed</div><div class="ns">watsonx.ai · 36 chunks</div></div>
+        <div class="arr purple">→</div>
+        <div class="node n-purple"><div class="nt">⚡ FAISS Index</div><div class="ns">COS: rag/faiss_index.bin</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ld"></div>
+
+  
+  <div class="layer-label">⬤ Layer 3 — API Serving</div>
+  <div class="row">
+    <div class="node n-amber"><div class="nt">⚙ Cloud Functions</div><div class="ns">4 endpoints · 512 MB · Web Action</div></div>
+    <div class="arr">←</div>
+    <div class="node n-teal" style="min-width:90px"><div class="nt">📥 getNLQuery()</div><div class="ns">RAG handler → Granite</div></div>
+    <div class="arr purple">→</div>
+    <div class="node n-purple"><div class="nt">🤖 IBM Granite 3.2 8B</div><div class="ns">ibm/granite-3-2-8b-instruct</div></div>
+    <div style="display:flex;align-items:center;gap:6px;margin-left:8px;padding:6px 12px;background:rgba(86,207,178,.05);border:1px dashed rgba(86,207,178,.2);border-radius:6px">
+      <div style="font-size:10px;color:#56cfb2">+</div>
+      <div style="font-size:9px;color:#64748b">getStateStats /<br />getPrediction /<br />listPriorityStates</div>
+    </div>
+  </div>
+
+  <div class="ld"></div>
+
+  
+  <div class="layer-label">⬤ Layer 4 — User-Facing Interfaces</div>
+  <div class="row">
+    <div class="node n-teal"><div class="nt">💬 Watson Assistant</div><div class="ns">JalMitra · 8 intents · 27 states</div></div>
+    <div class="arr gray">+</div>
+    <div class="node n-gray"><div class="nt">📊 Cloud Foundry</div><div class="ns">Dashboard · Chart.js · Leaflet</div></div>
+    <div class="arr gray">+</div>
+    <div class="node n-gray"><div class="nt">🔄 Node-RED</div><div class="ns">Orchestration · 3 flows</div></div>
+    <div class="arr">→</div>
+    <div class="node n-green"><div class="nt">👥 End Users</div><div class="ns">Citizens · NGOs · Policymakers</div></div>
+  </div>
+
+  
+  <div class="legend">
+    <div class="leg"><div class="dot" style="background:#56cfb2"></div>IBM Cloud Lite (free)</div>
+    <div class="leg"><div class="dot" style="background:#a78bfa"></div>NEW in v2.0 (Granite + RAG)</div>
+    <div class="leg"><div class="dot" style="background:#60a5fa"></div>Watson Studio Notebooks</div>
+    <div class="leg"><div class="dot" style="background:#fbbf24"></div>Serverless API Layer</div>
+    <div class="leg"><div class="dot" style="background:#34d399"></div>End User Interface</div>
+  </div>
+</div>
+<div class="foot"><em>JalDrishti v2.0</em><span>Slide 4 / 14 — Architecture</span></div>
+</body></html>

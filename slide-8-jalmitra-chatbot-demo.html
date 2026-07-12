@@ -1,0 +1,123 @@
+<html lang="en"><head><meta charset="UTF-8" /><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0a1628;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(86,207,178,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(86,207,178,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.wrap{position:relative;z-index:1;padding:28px 48px;flex:1}
+.tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#56cfb2;margin-bottom:7px}
+.h2{font-size:26px;font-weight:800;margin-bottom:6px}
+.h2 em{color:#56cfb2;font-style:normal}
+.div{width:40px;height:3px;background:#56cfb2;border-radius:2px;margin-bottom:18px}
+.col2{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:start}
+
+/* PHONE MOCKUP */
+.phone{background:#0d1b35;border:2px solid rgba(255,255,255,.12);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.phone-bar{background:#0f2040;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.07)}
+.ph-dot{width:8px;height:8px;border-radius:50%}
+.ph-title{font-size:12px;font-weight:700;color:#56cfb2;margin-left:4px}
+.ph-sub{font-size:9px;color:#64748b}
+.ph-badge{font-size:8px;font-weight:700;background:rgba(86,207,178,.15);color:#56cfb2;border:1px solid rgba(86,207,178,.25);padding:2px 7px;border-radius:8px;margin-left:auto}
+.msgs{padding:14px 14px;display:flex;flex-direction:column;gap:10px;min-height:360px}
+.mb{background:rgba(86,207,178,.06);border:1px solid rgba(86,207,178,.18);color:#e2e8f0;padding:10px 13px;border-radius:12px 12px 12px 2px;font-size:11px;align-self:flex-start;max-width:90%;line-height:1.65}
+.mb strong{color:#56cfb2}
+.mb .src{font-size:9px;color:#475569;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.06)}
+.mu{background:rgba(59,130,212,.18);border:1px solid rgba(59,130,212,.28);color:#bfdbfe;padding:9px 13px;border-radius:12px 12px 2px 12px;font-size:11px;align-self:flex-end;max-width:80%}
+.chips-row{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 12px}
+.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#94a3c8;font-size:9px;padding:4px 10px;border-radius:12px}
+
+/* RIGHT PANEL */
+.rp{display:flex;flex-direction:column;gap:12px}
+.card{border-radius:10px;padding:15px}
+.card h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px}
+.card p{font-size:11px;color:#94a3c8;line-height:1.6}
+.card p strong{color:#fff}
+.cg{background:rgba(86,207,178,.05);border:1px solid rgba(86,207,178,.22)}.cg h4{color:#56cfb2}
+.cp{background:rgba(167,139,250,.05);border:1px solid rgba(167,139,250,.22)}.cp h4{color:#a78bfa}
+.cb{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.22)}.cb h4{color:#60a5fa}
+.intents{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.int{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:9px;color:#94a3c8;padding:3px 8px;border-radius:8px}
+
+.foot{padding:10px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:10px;color:#334155}
+.foot em{color:#56cfb2;font-style:normal;font-weight:700}
+</style></head><body>
+<div class="grid"></div>
+<div class="wrap">
+  <div class="tag">JalMitra — IBM Granite RAG Chatbot</div>
+  <div class="h2">Ask Water Questions in <em>Plain English</em></div>
+  <div class="div"></div>
+  <div class="col2">
+    
+    <div class="phone">
+      <div class="phone-bar">
+        <div class="ph-dot" style="background:#ef4444"></div>
+        <div class="ph-dot" style="background:#fbbf24"></div>
+        <div class="ph-dot" style="background:#10b981"></div>
+        <div class="ph-title">💧 JalMitra</div>
+        <div class="ph-sub">Powered by IBM Granite 3.2 8B</div>
+        <div class="ph-badge">● Live</div>
+      </div>
+      <div class="msgs">
+        <div class="mb">🌊 Namaste! I'm <strong>JalMitra</strong>, powered by <strong>IBM Granite 3.2 8B Instruct</strong> via watsonx.ai.<br /><br />I can answer questions about drinking water access, equity gaps, and SDG 6 progress for any Indian state — with data from <strong>MIS 78th Round</strong>.</div>
+        <div class="mu">What is the rural water access in Bihar?</div>
+        <div class="mb">
+          <strong>Bihar — MIS 78th Round (2020–21)</strong><br /><br />
+          🔴 Rural water access: <strong>58.6%</strong><br />
+          🏙 Urban water access: <strong>84.2%</strong><br />
+          📊 Equity gap: <strong>25.6 percentage points</strong><br />
+          📉 SDG 6.1 proxy: <strong>67.9%</strong> — <strong>At Risk</strong><br />
+          🔵 ML Tier: <strong>Tier D (Priority Intervention)</strong><br /><br />
+          SC households rural: 48.3% · ST households rural: 42.1%<br />
+          <strong>Recommendation:</strong> Urgent JJM fund allocation &amp; bundled SDG 6+7 intervention required.
+          <div class="src">🤖 ibm/granite-3-2-8b-instruct via watsonx.ai · Sources: Bihar MIS 78th Round data · Temp=0.1</div>
+        </div>
+        <div class="mu">Which 5 states need urgent intervention?</div>
+        <div class="mb">
+          <strong>Top 5 Priority States (by SDG 6.1 proxy):</strong><br /><br />
+          1. 🔴 <strong>Jharkhand</strong> — 65.7% (CRITICAL)<br />
+          2. 🔴 <strong>Bihar</strong> — 67.9% (CRITICAL)<br />
+          3. 🟠 <strong>Odisha</strong> — 71.2% (HIGH)<br />
+          4. 🟠 <strong>Uttar Pradesh</strong> — 75.8% (HIGH)<br />
+          5. 🟠 <strong>Rajasthan</strong> — 73.2% (HIGH)
+          <div class="src">🤖 ibm/granite-3-2-8b-instruct · Sources: 5-state FAISS retrieval · MIS 78th Round</div>
+        </div>
+      </div>
+      <div class="chips-row">
+        <span class="chip">Bihar rural %</span>
+        <span class="chip">Priority states</span>
+        <span class="chip">Rajasthan gap</span>
+        <span class="chip">Is Punjab on track?</span>
+        <span class="chip">Cooking fuel link</span>
+      </div>
+    </div>
+
+    
+    <div class="rp">
+      <div class="card cg">
+        <h4>v2.0 Upgrade — IBM Granite RAG</h4>
+        <p>Replaced 70 lines of hardcoded keyword if/else with a full <strong>RAG pipeline</strong>. Answers are grounded in real MIS 78th Round data retrieved via FAISS — <strong>zero hallucinations</strong>. Source attribution on every response.</p>
+      </div>
+      <div class="card cp">
+        <h4>Watson Assistant Integration</h4>
+        <p>Watson Assistant handles NLU (8 intents, 27 state entities). On every user message, it calls Cloud Functions <strong>getNLQuery()</strong> via webhook → full Granite RAG pipeline → response back to WA dialog.</p>
+      </div>
+      <div class="card cb">
+        <h4>8 Supported Intents</h4>
+        <div class="intents">
+          <span class="int">query_water_access</span>
+          <span class="int">query_equity_gap</span>
+          <span class="int">query_priority_states</span>
+          <span class="int">query_sdg_status</span>
+          <span class="int">query_cooking_fuel</span>
+          <span class="int">query_migration</span>
+          <span class="int">greet</span>
+          <span class="int">goodbye</span>
+        </div>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)">
+        <h4 style="color:#94a3c8">Accessibility</h4>
+        <p>Panchayat officials with no data skills can access real MIS 78th Round statistics via natural language. Extensible to <strong>Hindi, Bengali, Tamil</strong> via Watson Language Translator.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="foot"><em>JalDrishti v2.0</em><span>Slide 8 / 14 — JalMitra Demo</span></div>
+</body></html>

@@ -1,0 +1,287 @@
+{
+  "name": "JalMitra",
+  "description": "JalMitra — Citizen/Policymaker Chatbot for Drinking Water Analytics (Watson Assistant Lite)",
+  "language": "en",
+  "intents": [
+    {
+      "intent": "query_water_access",
+      "description": "User asks about drinking water access percentage in a state/region",
+      "examples": [
+        { "text": "What percent of rural Bihar has improved water access?" },
+        { "text": "Water access in Rajasthan" },
+        { "text": "How many households in Uttar Pradesh have safe water?" },
+        { "text": "Tell me the drinking water coverage in rural Odisha" },
+        { "text": "What is improved water source percentage in Maharashtra?" },
+        { "text": "Piped water coverage in Kerala" },
+        { "text": "Water access statistics for Jharkhand" },
+        { "text": "Percentage of population with clean water in Chhattisgarh" },
+        { "text": "How is Assam doing on drinking water?" },
+        { "text": "Show me water access data for West Bengal" }
+      ]
+    },
+    {
+      "intent": "query_equity_gap",
+      "description": "User asks about rural-urban gap in water access",
+      "examples": [
+        { "text": "What is the rural urban gap in water access in Gujarat?" },
+        { "text": "How big is the disparity between villages and cities in Rajasthan?" },
+        { "text": "Equity gap for drinking water in Bihar" },
+        { "text": "Which states have highest rural urban water gap?" },
+        { "text": "Urban vs rural water difference in Madhya Pradesh" },
+        { "text": "Disparity in water access between sectors" },
+        { "text": "How unequal is water access in Uttar Pradesh?" },
+        { "text": "Compare rural and urban water coverage in Karnataka" }
+      ]
+    },
+    {
+      "intent": "query_priority_states",
+      "description": "User asks which states need urgent water access intervention",
+      "examples": [
+        { "text": "Which states need urgent water intervention?" },
+        { "text": "List the worst performing states for water access" },
+        { "text": "Which states are at risk of missing SDG 6?" },
+        { "text": "Show priority states for water investment" },
+        { "text": "Where should government focus water programs?" },
+        { "text": "States that need immediate water infrastructure" },
+        { "text": "Bottom 10 states for drinking water" },
+        { "text": "Worst states for rural water access in India" },
+        { "text": "Which districts need most help with water?" },
+        { "text": "Critical intervention states for Jal Jeevan Mission" }
+      ]
+    },
+    {
+      "intent": "query_sdg_status",
+      "description": "User asks about SDG 6 progress or target compliance",
+      "examples": [
+        { "text": "Is Punjab on track for SDG 6?" },
+        { "text": "SDG 6.1 progress in India" },
+        { "text": "Will Bihar meet the 2030 water target?" },
+        { "text": "How is India doing on Sustainable Development Goal 6?" },
+        { "text": "Which states will miss SDG 6 targets?" },
+        { "text": "SDG 6 compliance for Telangana" },
+        { "text": "Track record for clean water goals" },
+        { "text": "Progress toward safe drinking water target" }
+      ]
+    },
+    {
+      "intent": "query_cooking_fuel_correlation",
+      "description": "User asks about correlation between clean cooking fuel and water access",
+      "examples": [
+        { "text": "Is clean cooking fuel linked to water access?" },
+        { "text": "Relationship between LPG usage and drinking water in rural areas" },
+        { "text": "Do states with better cooking fuel have better water access?" },
+        { "text": "Clean cooking fuel and water access correlation" },
+        { "text": "Which states have both low water and low cooking fuel access?" }
+      ]
+    },
+    {
+      "intent": "query_migration",
+      "description": "User asks about migration trends and their effect on water access",
+      "examples": [
+        { "text": "How does migration affect water access?" },
+        { "text": "States with high migration and poor water coverage" },
+        { "text": "Migration rate and water access in Bihar" },
+        { "text": "Do people migrate because of poor water access?" }
+      ]
+    },
+    {
+      "intent": "greet",
+      "examples": [
+        { "text": "Hello" },
+        { "text": "Hi JalMitra" },
+        { "text": "Good morning" },
+        { "text": "Namaste" },
+        { "text": "Start" }
+      ]
+    },
+    {
+      "intent": "goodbye",
+      "examples": [
+        { "text": "Bye" },
+        { "text": "Thank you" },
+        { "text": "That's all" },
+        { "text": "Exit" }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "state_name",
+      "description": "Indian state or union territory name",
+      "values": [
+        { "value": "andhra pradesh",   "synonyms": ["AP","Andhra"] },
+        { "value": "assam",            "synonyms": [] },
+        { "value": "bihar",            "synonyms": [] },
+        { "value": "chhattisgarh",     "synonyms": ["CG"] },
+        { "value": "delhi",            "synonyms": ["NCT Delhi","New Delhi"] },
+        { "value": "gujarat",          "synonyms": [] },
+        { "value": "haryana",          "synonyms": [] },
+        { "value": "himachal pradesh", "synonyms": ["HP"] },
+        { "value": "jharkhand",        "synonyms": [] },
+        { "value": "karnataka",        "synonyms": [] },
+        { "value": "kerala",           "synonyms": [] },
+        { "value": "madhya pradesh",   "synonyms": ["MP"] },
+        { "value": "maharashtra",      "synonyms": [] },
+        { "value": "manipur",          "synonyms": [] },
+        { "value": "meghalaya",        "synonyms": [] },
+        { "value": "mizoram",          "synonyms": [] },
+        { "value": "nagaland",         "synonyms": [] },
+        { "value": "odisha",           "synonyms": ["Orissa"] },
+        { "value": "punjab",           "synonyms": [] },
+        { "value": "rajasthan",        "synonyms": [] },
+        { "value": "sikkim",           "synonyms": [] },
+        { "value": "tamil nadu",       "synonyms": ["TN"] },
+        { "value": "telangana",        "synonyms": ["TS"] },
+        { "value": "tripura",          "synonyms": [] },
+        { "value": "uttar pradesh",    "synonyms": ["UP","Yogi state"] },
+        { "value": "uttarakhand",      "synonyms": ["Uttaranchal"] },
+        { "value": "west bengal",      "synonyms": ["Bengal","WB"] }
+      ]
+    },
+    {
+      "entity": "sector",
+      "values": [
+        { "value": "rural",  "synonyms": ["village","villages","rural areas","countryside"] },
+        { "value": "urban",  "synonyms": ["city","cities","town","urban areas"] }
+      ]
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "dialog_node": "Welcome",
+      "conditions": "welcome",
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{
+            "text": "🌊 Namaste! I'm **JalMitra**, your AI guide for drinking water data in India.\n\nI can help you with:\n• Water access statistics by state\n• Rural-urban equity gaps\n• SDG 6 progress tracking\n• Priority states for intervention\n\nTry asking: *\"What is the rural water access in Bihar?\"* or *\"Which states need urgent intervention?\"*"
+          }]
+        }]
+      }
+    },
+    {
+      "dialog_node": "Query_Water_Access",
+      "conditions": "#query_water_access",
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{ "text": "Fetching water access data..." }]
+        }]
+      },
+      "actions": [{
+        "name": "jaldrishti/getNLQuery",
+        "type": "cloud_function",
+        "parameters": {
+          "intent": "query_water_access",
+          "entities": "$entities"
+        },
+        "result_variable": "context.water_data",
+        "credentials": "$private.jaldrishti_cf_credentials"
+      }],
+      "next_step": {
+        "behavior": "jump_to",
+        "dialog_node": "Show_Water_Access_Response",
+        "selector": "condition"
+      }
+    },
+    {
+      "dialog_node": "Show_Water_Access_Response",
+      "conditions": "$water_data",
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{ "text": "<? $water_data.response_text ?>" }]
+        }]
+      }
+    },
+    {
+      "dialog_node": "Query_Priority_States",
+      "conditions": "#query_priority_states",
+      "actions": [{
+        "name": "jaldrishti/getNLQuery",
+        "type": "cloud_function",
+        "parameters": {
+          "intent": "query_priority_states",
+          "entities": []
+        },
+        "result_variable": "context.priority_data"
+      }],
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{ "text": "<? $priority_data.response_text ?>" }]
+        }]
+      }
+    },
+    {
+      "dialog_node": "Query_Equity_Gap",
+      "conditions": "#query_equity_gap",
+      "actions": [{
+        "name": "jaldrishti/getNLQuery",
+        "type": "cloud_function",
+        "parameters": {
+          "intent": "query_equity_gap",
+          "entities": "$entities"
+        },
+        "result_variable": "context.equity_data"
+      }],
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{ "text": "<? $equity_data.response_text ?>" }]
+        }]
+      }
+    },
+    {
+      "dialog_node": "Query_SDG_Status",
+      "conditions": "#query_sdg_status",
+      "actions": [{
+        "name": "jaldrishti/getNLQuery",
+        "type": "cloud_function",
+        "parameters": {
+          "intent": "query_sdg_status",
+          "entities": "$entities"
+        },
+        "result_variable": "context.sdg_data"
+      }],
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{ "text": "<? $sdg_data.response_text ?>" }]
+        }]
+      }
+    },
+    {
+      "dialog_node": "Greet",
+      "conditions": "#greet",
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{ "text": "Namaste! I'm JalMitra. Ask me about water access data for any Indian state. How can I help?" }]
+        }]
+      }
+    },
+    {
+      "dialog_node": "Goodbye",
+      "conditions": "#goodbye",
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{ "text": "Thank you for using JalMitra! Together, let's ensure safe water for every Indian household. 🌊" }]
+        }]
+      }
+    },
+    {
+      "dialog_node": "Anything_Else",
+      "conditions": "anything_else",
+      "output": {
+        "generic": [{
+          "response_type": "text",
+          "values": [{
+            "text": "I didn't quite understand that. I can help with water access statistics, equity gaps, SDG 6 progress, and priority states. Try asking about a specific state like *\"Water access in Rajasthan\"*."
+          }]
+        }]
+      }
+    }
+  ]
+}

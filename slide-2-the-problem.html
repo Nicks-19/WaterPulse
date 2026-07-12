@@ -1,0 +1,91 @@
+<html lang="en"><head><meta charset="UTF-8" /><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0d1b35;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(86,207,178,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(86,207,178,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.wrap{position:relative;z-index:1;padding:36px 52px;flex:1}
+.top{margin-bottom:22px}
+.tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#56cfb2;margin-bottom:8px}
+.h2{font-size:30px;font-weight:800;line-height:1.2}
+.h2 em{color:#56cfb2;font-style:normal}
+.div{width:44px;height:3px;background:#56cfb2;border-radius:2px;margin-top:12px}
+.body{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start}
+
+/* BAR CHART */
+.chart-title{font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.brow{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.blbl{font-size:11px;color:#94a3c8;width:128px;text-align:right;flex-shrink:0}
+.btrack{flex:1;height:20px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;position:relative}
+.bfill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:6px}
+.bfill span{font-size:10px;font-weight:700;color:rgba(255,255,255,.9)}
+.bpct{font-size:11px;font-weight:700;width:42px;color:#fff;flex-shrink:0}
+.nat-line{position:absolute;right:calc(100% - 94.5%);top:0;bottom:0;width:2px;background:rgba(255,255,255,.25)}
+.nat-label{font-size:9px;color:#64748b;text-align:right;margin-top:4px;margin-right:calc(100% - 94.5%)}
+
+/* RIGHT PANEL */
+.rp{display:flex;flex-direction:column;gap:14px}
+.card{border-radius:10px;padding:16px}
+.card h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.card p{font-size:12px;color:#94a3c8;line-height:1.6}
+.card p strong{color:#fff}
+.cr{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.25)}
+.cr h4{color:#f87171}
+.cy{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.22)}
+.cy h4{color:#fbbf24}
+.cb{background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.22)}
+.cb h4{color:#60a5fa}
+
+/* CALLOUT */
+.callout{background:linear-gradient(135deg,rgba(248,113,113,.12),rgba(239,68,68,.05));border:1px solid rgba(248,113,113,.3);border-radius:10px;padding:14px 18px;margin-top:14px;text-align:center}
+.callout .big{font-size:26px;font-weight:900;color:#f87171}
+.callout .lbl{font-size:11px;color:#94a3c8;margin-top:3px}
+
+.foot{padding:12px 52px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:10px;color:#334155}
+.foot em{color:#56cfb2;font-style:normal;font-weight:700}
+</style></head><body>
+<div class="grid"></div>
+<div class="wrap">
+  <div class="top">
+    <div class="tag">The Problem</div>
+    <div class="h2">94.5% National Average <em>Hides a 30-Point Equity Gap</em></div>
+    <div class="div"></div>
+  </div>
+  <div class="body">
+    
+    <div>
+      <div class="chart-title">Rural Water Access % — MIS 78th Round (2020–21) · All 36 States</div>
+      <div class="brow"><div class="blbl">Himachal Pradesh</div><div class="btrack"><div class="bfill" style="width:97%;background:linear-gradient(90deg,#059669,#10b981)"><span>97.3%</span></div></div></div>
+      <div class="brow"><div class="blbl">Kerala</div><div class="btrack"><div class="bfill" style="width:93%;background:linear-gradient(90deg,#059669,#10b981)"><span>93.4%</span></div></div></div>
+      <div class="brow"><div class="blbl">Punjab</div><div class="btrack"><div class="bfill" style="width:89%;background:linear-gradient(90deg,#059669,#10b981)"><span>89.4%</span></div></div></div>
+      <div class="brow"><div class="blbl">Maharashtra</div><div class="btrack"><div class="bfill" style="width:82%;background:linear-gradient(90deg,#0d9488,#14b8a6)"><span>81.6%</span></div></div></div>
+      <div class="brow"><div class="blbl">Karnataka</div><div class="btrack"><div class="bfill" style="width:79%;background:linear-gradient(90deg,#d97706,#f59e0b)"><span>79.4%</span></div></div></div>
+      <div class="brow"><div class="blbl">West Bengal</div><div class="btrack"><div class="bfill" style="width:77%;background:linear-gradient(90deg,#d97706,#f59e0b)"><span>76.8%</span></div></div></div>
+      <div class="brow"><div class="blbl">Uttar Pradesh</div><div class="btrack"><div class="bfill" style="width:72%;background:linear-gradient(90deg,#c2410c,#f97316)"><span>72.4%</span></div></div></div>
+      <div class="brow"><div class="blbl">Assam</div><div class="btrack"><div class="bfill" style="width:68%;background:linear-gradient(90deg,#c2410c,#f97316)"><span>68.4%</span></div></div></div>
+      <div class="brow"><div class="blbl">Rajasthan</div><div class="btrack"><div class="bfill" style="width:65%;background:linear-gradient(90deg,#dc2626,#ef4444)"><span>64.8%</span></div></div></div>
+      <div class="brow"><div class="blbl">Odisha</div><div class="btrack"><div class="bfill" style="width:62%;background:linear-gradient(90deg,#dc2626,#ef4444)"><span>62.4%</span></div></div></div>
+      <div class="brow"><div class="blbl" style="color:#f87171;font-weight:700">Bihar</div><div class="btrack"><div class="bfill" style="width:59%;background:linear-gradient(90deg,#991b1b,#dc2626)"><span>58.6%</span></div></div></div>
+      <div class="brow"><div class="blbl" style="color:#f87171;font-weight:700">Jharkhand</div><div class="btrack"><div class="bfill" style="width:56%;background:linear-gradient(90deg,#7f1d1d,#991b1b)"><span>56.4%</span></div></div></div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:10px;padding-left:138px">
+        <div style="width:2px;height:14px;background:rgba(255,255,255,.3)"></div>
+        <div style="font-size:9px;color:#64748b">← National avg 94.5%</div>
+        <div style="display:flex;align-items:center;gap:14px;margin-left:16px">
+          <span style="display:flex;align-items:center;gap:4px;font-size:9px;color:#10b981"><span style="width:10px;height:10px;background:#10b981;border-radius:2px;display:inline-block"></span>≥80% On Track</span>
+          <span style="display:flex;align-items:center;gap:4px;font-size:9px;color:#f59e0b"><span style="width:10px;height:10px;background:#f59e0b;border-radius:2px;display:inline-block"></span>70–80% At Risk</span>
+          <span style="display:flex;align-items:center;gap:4px;font-size:9px;color:#ef4444"><span style="width:10px;height:10px;background:#ef4444;border-radius:2px;display:inline-block"></span>&lt;70% Critical</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="rp">
+      <div class="card cr"><h4>The Hidden Crisis</h4><p>National avg <strong>94.5%</strong> masks <strong>15–30 pp</strong> rural-urban gap. ST rural households in Bihar: only <strong>42.1%</strong> access.</p></div>
+      <div class="card cy"><h4>SDG 6.1 at Risk by 2030</h4><p><strong>8–12 states</strong> will miss universal basic water access target. No real-time AI tool existed to identify and rank them.</p></div>
+      <div class="card cb"><h4>The Opportunity</h4><p>Manual state analysis takes <strong>2 weeks</strong>. JalDrishti does it in <strong>30 seconds</strong>, at <strong>₹0/month</strong>.</p></div>
+      <div class="callout">
+        <div class="big">180M+</div>
+        <div class="lbl">Rural residents in the equity-gap zone — direct target population for intervention</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="foot"><em>JalDrishti v2.0</em><span>Slide 2 / 14 — The Problem</span></div>
+</body></html>

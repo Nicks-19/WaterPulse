@@ -1,0 +1,111 @@
+<html lang="en"><head><meta charset="UTF-8" /><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0a1628;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(86,207,178,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(86,207,178,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.wrap{position:relative;z-index:1;padding:28px 48px;flex:1}
+.tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#56cfb2;margin-bottom:7px}
+.h2{font-size:26px;font-weight:800;margin-bottom:6px}
+.h2 em{color:#56cfb2;font-style:normal}
+.div{width:40px;height:3px;background:#56cfb2;border-radius:2px;margin-bottom:20px}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#56cfb2,#60a5fa,#a78bfa,#f59e0b,#f87171,#34d399)}
+.phase{position:relative;margin-bottom:16px;display:flex;gap:20px;align-items:flex-start}
+.phase:last-child{margin-bottom:0}
+.phase::before{content:'';position:absolute;left:-22px;top:12px;width:12px;height:12px;border-radius:50%;border:2px solid;background:#0a1628}
+.p1::before{border-color:#56cfb2;box-shadow:0 0 8px rgba(86,207,178,.5)}
+.p2::before{border-color:#60a5fa;box-shadow:0 0 8px rgba(96,165,250,.4)}
+.p3::before{border-color:#a78bfa;box-shadow:0 0 8px rgba(167,139,250,.4)}
+.p4::before{border-color:#f59e0b;box-shadow:0 0 8px rgba(245,158,11,.4)}
+.p5::before{border-color:#f87171;box-shadow:0 0 8px rgba(248,113,113,.4)}
+.p6::before{border-color:#34d399;box-shadow:0 0 8px rgba(52,211,153,.4)}
+.ph-badge{padding:5px 11px;border-radius:6px;font-size:10px;font-weight:700;min-width:110px;text-align:center;flex-shrink:0}
+.ph-badge .pn{font-size:11px;font-weight:800;display:block}
+.ph-badge .pt{font-size:9px;margin-top:1px;opacity:.8;display:block}
+.b1{background:rgba(86,207,178,.1);border:1px solid rgba(86,207,178,.3);color:#56cfb2}
+.b2{background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.25);color:#60a5fa}
+.b3{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.25);color:#a78bfa}
+.b4{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);color:#fbbf24}
+.b5{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.22);color:#f87171}
+.b6{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.22);color:#34d399}
+.ph-content strong{font-size:13px;display:block;margin-bottom:3px}
+.ph-content span{font-size:11px;color:#64748b;line-height:1.5}
+.ph-content .tags{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.ptag{font-size:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#94a3c8;padding:2px 8px;border-radius:6px}
+
+/* BOTTOM THANK YOU */
+.ty{background:linear-gradient(135deg,rgba(86,207,178,.06),rgba(96,165,250,.04));border:1px solid rgba(86,207,178,.2);border-radius:12px;padding:16px 22px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ty-left .big{font-size:18px;font-weight:800;color:#56cfb2}
+.ty-left .sub{font-size:11px;color:#64748b;margin-top:2px}
+.ty-chips{display:flex;gap:8px;flex-wrap:wrap}
+.tychip{font-size:9px;font-weight:700;padding:4px 10px;border-radius:10px}
+.tc1{background:rgba(86,207,178,.12);color:#56cfb2;border:1px solid rgba(86,207,178,.25)}
+.tc2{background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.22)}
+.tc3{background:rgba(96,165,250,.1);color:#60a5fa;border:1px solid rgba(96,165,250,.22)}
+
+.foot{padding:10px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:10px;color:#334155}
+.foot em{color:#56cfb2;font-style:normal;font-weight:700}
+</style></head><body>
+<div class="grid"></div>
+<div class="wrap">
+  <div class="tag">Future Scope</div>
+  <div class="h2">6-Phase Roadmap — <em>24 Months to Full Scale</em></div>
+  <div class="div"></div>
+  <div class="timeline">
+    <div class="phase p1">
+      <div class="ph-badge b1"><span class="pn">Phase 2</span><span class="pt">6–12 months</span></div>
+      <div class="ph-content">
+        <strong>Real-Time IoT Integration</strong>
+        <span>JJM Smart Village sensors (turbidity, TDS, pH) → IBM IoT Platform → IBM Event Streams → real-time water quality alerts. Shift from annual survey to hourly sensor data.</span>
+        <div class="tags"><span class="ptag">IBM IoT Platform</span><span class="ptag">MQTT</span><span class="ptag">Event Streams</span><span class="ptag">Real-time alerts</span></div>
+      </div>
+    </div>
+    <div class="phase p2">
+      <div class="ph-badge b2"><span class="pn">Phase 3</span><span class="pt">3–6 months</span></div>
+      <div class="ph-content">
+        <strong>Multilingual JalMitra</strong>
+        <span>Hindi, Bengali, Telugu, Tamil, Marathi, Gujarati via Watson Language Translator. Covers 90%+ of India in native language — enabling true grassroots access.</span>
+        <div class="tags"><span class="ptag">Watson Language Translator</span><span class="ptag">Hindi</span><span class="ptag">Bengali</span><span class="ptag">Tamil</span><span class="ptag">Marathi</span></div>
+      </div>
+    </div>
+    <div class="phase p3">
+      <div class="ph-badge b3"><span class="pn">Phase 4</span><span class="pt">12–18 months</span></div>
+      <div class="ph-content">
+        <strong>Multi-SDG Coverage</strong>
+        <span>Extend to SDG 2 (hunger), SDG 3 (health/IMR), SDG 6.2 (sanitation), SDG 7.1 (clean energy). Same IBM Cloud infrastructure reused — only new ETL notebooks + WML models needed.</span>
+        <div class="tags"><span class="ptag">SDG 2</span><span class="ptag">SDG 3</span><span class="ptag">SDG 6.2</span><span class="ptag">SDG 7.1</span><span class="ptag">NFHS-5 data</span></div>
+      </div>
+    </div>
+    <div class="phase p4">
+      <div class="ph-badge b4"><span class="pn">Phase 5</span><span class="pt">18–24 months</span></div>
+      <div class="ph-content">
+        <strong>Mobile Progressive Web App</strong>
+        <span>IBM Mobile Foundation · Offline-capable district water status for field workers · Photo-based pipe/tap condition reporting feeding ML classification model.</span>
+        <div class="tags"><span class="ptag">IBM Mobile Foundation</span><span class="ptag">Offline PWA</span><span class="ptag">Field workers</span><span class="ptag">Geo-fenced alerts</span></div>
+      </div>
+    </div>
+    <div class="phase p5">
+      <div class="ph-badge b5"><span class="pn">Phase 6</span><span class="pt">24+ months</span></div>
+      <div class="ph-content">
+        <strong>JJM IMIS Integration</strong>
+        <span>Connect to Jal Jeevan Mission IMIS REST API. Real-time gap analysis: JJM tap connections deployed vs. MIS-78 baseline → automated SDG gap tracking for 250,000+ gram panchayats.</span>
+        <div class="tags"><span class="ptag">JJM IMIS API</span><span class="ptag">250K panchayats</span><span class="ptag">Automated SDG gap</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ty">
+    <div class="ty-left">
+      <div class="big">💧 JalDrishti v2.0</div>
+      <div class="sub">IBM Cloud Lite · ₹0/month · Open Source MIT License · Safe Water for Every Indian Household</div>
+    </div>
+    <div class="ty-chips">
+      <span class="tychip tc1">IBM Granite 3.2 8B</span>
+      <span class="tychip tc2">watsonx.ai + RAG</span>
+      <span class="tychip tc3">MIS 78th Round · SDG 6</span>
+    </div>
+  </div>
+</div>
+<div class="foot"><em>JalDrishti v2.0</em><span>Slide 14 / 14 — Future Roadmap</span></div>
+</body></html>

@@ -1,0 +1,2 @@
+# Staticfile buildpack — serve index.html as root
+root: .

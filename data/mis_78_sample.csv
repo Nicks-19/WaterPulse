@@ -1,0 +1,94 @@
+state_code,state_name,sector,social_group,pct_improved_water,pct_clean_cooking,pct_migration,year
+1,Jammu & Kashmir,Rural,Total,76.2,52.1,3.8,2023
+1,Jammu & Kashmir,Urban,Total,94.8,87.3,6.2,2023
+2,Himachal Pradesh,Rural,Total,97.3,68.4,4.1,2023
+2,Himachal Pradesh,Urban,Total,99.1,94.7,7.8,2023
+3,Punjab,Rural,Total,89.4,72.6,5.6,2023
+3,Punjab,Urban,Total,96.7,91.2,9.3,2023
+4,Chandigarh,Rural,Total,99.8,96.3,11.2,2023
+4,Chandigarh,Urban,Total,99.9,99.1,18.4,2023
+5,Uttarakhand,Rural,Total,83.6,55.8,6.2,2023
+5,Uttarakhand,Urban,Total,96.2,88.4,12.1,2023
+6,Haryana,Rural,Total,87.2,66.3,7.4,2023
+6,Haryana,Urban,Total,97.4,92.6,11.8,2023
+7,Delhi,Rural,Total,95.4,88.7,14.2,2023
+7,Delhi,Urban,Total,98.9,97.4,21.6,2023
+8,Rajasthan,Rural,Total,64.8,38.2,4.9,2023
+8,Rajasthan,Urban,Total,88.6,72.4,8.7,2023
+9,Uttar Pradesh,Rural,Total,72.4,44.6,5.8,2023
+9,Uttar Pradesh,Urban,Total,91.3,78.9,9.2,2023
+9,Uttar Pradesh,Rural,SC,61.3,36.2,4.9,2023
+9,Uttar Pradesh,Rural,ST,52.4,28.4,3.8,2023
+9,Uttar Pradesh,Rural,OBC,69.8,41.3,5.2,2023
+10,Bihar,Rural,Total,58.6,32.4,6.9,2023
+10,Bihar,Urban,Total,84.2,68.7,12.3,2023
+10,Bihar,Rural,SC,48.3,24.6,5.8,2023
+10,Bihar,Rural,ST,42.1,19.8,4.6,2023
+10,Bihar,Rural,OBC,56.4,30.1,6.4,2023
+11,Sikkim,Rural,Total,94.8,72.6,3.2,2023
+11,Sikkim,Urban,Total,98.3,96.8,8.6,2023
+12,Arunachal Pradesh,Rural,Total,78.4,48.6,3.1,2023
+12,Arunachal Pradesh,Urban,Total,91.2,76.3,5.8,2023
+13,Nagaland,Rural,Total,82.6,54.2,2.9,2023
+13,Nagaland,Urban,Total,94.7,84.6,6.4,2023
+14,Manipur,Rural,Total,71.3,46.8,3.6,2023
+14,Manipur,Urban,Total,89.4,78.2,7.2,2023
+15,Mizoram,Rural,Total,86.4,61.3,4.2,2023
+15,Mizoram,Urban,Total,96.8,92.4,9.8,2023
+16,Tripura,Rural,Total,79.6,52.4,3.8,2023
+16,Tripura,Urban,Total,93.2,84.6,7.6,2023
+17,Meghalaya,Rural,Total,74.2,44.8,3.4,2023
+17,Meghalaya,Urban,Total,91.6,76.4,8.2,2023
+18,Assam,Rural,Total,68.4,38.6,4.2,2023
+18,Assam,Urban,Total,88.6,72.8,9.4,2023
+18,Assam,Rural,SC,58.3,29.4,3.6,2023
+18,Assam,Rural,ST,54.6,24.8,3.1,2023
+19,West Bengal,Rural,Total,76.8,48.6,5.4,2023
+19,West Bengal,Urban,Total,93.4,82.6,11.2,2023
+19,West Bengal,Rural,SC,66.4,38.2,4.8,2023
+19,West Bengal,Rural,ST,58.2,28.6,3.9,2023
+20,Jharkhand,Rural,Total,56.4,28.6,5.2,2023
+20,Jharkhand,Urban,Total,82.8,64.2,9.6,2023
+20,Jharkhand,Rural,ST,44.8,18.4,4.1,2023
+20,Jharkhand,Rural,SC,48.6,22.3,4.6,2023
+21,Odisha,Rural,Total,62.4,34.8,4.6,2023
+21,Odisha,Urban,Total,86.4,72.6,8.4,2023
+21,Odisha,Rural,ST,48.6,22.4,3.8,2023
+21,Odisha,Rural,SC,54.2,26.8,4.2,2023
+22,Chhattisgarh,Rural,Total,66.8,36.4,4.8,2023
+22,Chhattisgarh,Urban,Total,88.4,74.6,8.8,2023
+22,Chhattisgarh,Rural,ST,52.4,24.6,4.1,2023
+23,Madhya Pradesh,Rural,Total,68.6,40.2,4.4,2023
+23,Madhya Pradesh,Urban,Total,90.4,78.4,8.6,2023
+23,Madhya Pradesh,Rural,ST,52.8,26.4,3.6,2023
+23,Madhya Pradesh,Rural,SC,58.4,30.6,3.9,2023
+24,Gujarat,Rural,Total,84.6,62.4,5.8,2023
+24,Gujarat,Urban,Total,96.4,91.2,10.4,2023
+25,Daman & Diu,Rural,Total,96.8,88.4,14.6,2023
+25,Daman & Diu,Urban,Total,99.2,97.6,22.8,2023
+26,Dadra & Nagar Haveli,Rural,Total,82.4,56.8,9.4,2023
+26,Dadra & Nagar Haveli,Urban,Total,96.8,91.4,18.6,2023
+27,Maharashtra,Rural,Total,81.6,58.4,5.6,2023
+27,Maharashtra,Urban,Total,95.8,90.6,10.8,2023
+27,Maharashtra,Rural,ST,68.4,38.6,4.4,2023
+27,Maharashtra,Rural,SC,72.6,44.8,4.8,2023
+28,Karnataka,Rural,Total,79.4,56.8,5.4,2023
+28,Karnataka,Urban,Total,94.6,88.4,10.2,2023
+29,Goa,Rural,Total,94.2,84.6,7.8,2023
+29,Goa,Urban,Total,98.6,97.2,14.4,2023
+30,Lakshadweep,Rural,Total,98.4,92.6,4.2,2023
+30,Lakshadweep,Urban,Total,99.6,98.8,8.6,2023
+31,Kerala,Rural,Total,93.4,78.6,6.8,2023
+31,Kerala,Urban,Total,97.8,94.4,12.4,2023
+32,Tamil Nadu,Rural,Total,86.8,68.4,6.2,2023
+32,Tamil Nadu,Urban,Total,96.4,92.8,11.6,2023
+33,Puducherry,Rural,Total,92.6,82.4,8.4,2023
+33,Puducherry,Urban,Total,98.2,96.8,14.8,2023
+34,Andaman & Nicobar,Rural,Total,91.4,74.6,5.6,2023
+34,Andaman & Nicobar,Urban,Total,97.8,94.2,10.4,2023
+35,Telangana,Rural,Total,84.2,62.8,5.8,2023
+35,Telangana,Urban,Total,96.2,91.4,11.2,2023
+36,Andhra Pradesh,Rural,Total,82.4,58.6,5.4,2023
+36,Andhra Pradesh,Urban,Total,95.4,89.6,10.6,2023
+37,Ladakh,Rural,Total,72.6,44.2,3.4,2023
+37,Ladakh,Urban,Total,91.4,78.6,7.8,2023

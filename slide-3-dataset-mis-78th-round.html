@@ -1,0 +1,90 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Slide 3 — Dataset</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0f172a;color:#f1f5f9;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 16px}
+  .slide{width:100%;max-width:900px;background:#1e293b;border-radius:16px;overflow:hidden;border:1px solid #334155}
+  .header{background:linear-gradient(135deg,#0369a1,#0891b2);padding:28px 40px 20px}
+  .slide-num{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#bae6fd;margin-bottom:8px}
+  .header h1{font-size:26px;font-weight:700;color:#fff;line-height:1.3}
+  .header p{font-size:14px;color:#bae6fd;margin-top:6px}
+  .body{padding:28px 40px 32px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .meta-box{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:20px}
+  .meta-box h3{font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:#38bdf8;margin-bottom:14px}
+  .meta-row{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+  .dot{width:8px;height:8px;border-radius:50%;background:#0891b2;margin-top:5px;flex-shrink:0}
+  .meta-row p{font-size:13.5px;color:#cbd5e1;line-height:1.5}
+  .meta-row p strong{color:#f1f5f9}
+  table{width:100%;border-collapse:collapse;margin-top:4px}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#38bdf8;border-bottom:1px solid #334155;padding:8px 10px;text-align:left}
+  td{font-size:12.5px;color:#cbd5e1;padding:8px 10px;border-bottom:1px solid #1e293b}
+  tr:last-child td{border-bottom:none}
+  td:first-child{color:#f1f5f9;font-weight:500}
+  .badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:999px;font-weight:600}
+  .b-key{background:#0c4a6e;color:#7dd3fc}
+  .b-derived{background:#064e3b;color:#6ee7b7}
+  .highlight-box{grid-column:1/-1;background:#0c1a30;border:1px solid #1d4ed8;border-radius:10px;padding:18px 24px;display:flex;gap:32px;align-items:center;justify-content:space-around}
+  .stat{text-align:center}
+  .stat .num{font-size:28px;font-weight:700;color:#38bdf8}
+  .stat .lbl{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+  .footer{border-top:1px solid #334155;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;background:#0f172a}
+  .footer span{font-size:11px;color:#475569}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="slide-num">Slide 3 of 14 · NeerNiti</div>
+    <h1>MIS 78th Round — Multiple Indicator Survey</h1>
+    <p>Primary dataset · NSSO / MoSPI · hosted on AI Kosh (aikosh.indiaai.gov.in)</p>
+  </div>
+
+  <div class="body">
+    
+    <div class="meta-box">
+      <h3>Dataset Overview</h3>
+      <div class="meta-row"><div class="dot"></div><p><strong>Source:</strong> National Sample Survey Office (NSSO), Ministry of Statistics &amp; Programme Implementation</p></div>
+      <div class="meta-row"><div class="dot"></div><p><strong>Survey Period:</strong> July 2020 – June 2021</p></div>
+      <div class="meta-row"><div class="dot"></div><p><strong>Coverage:</strong> All 36 States &amp; Union Territories of India</p></div>
+      <div class="meta-row"><div class="dot"></div><p><strong>Sample Size:</strong> ~64,000 households across 8,000+ villages &amp; urban blocks</p></div>
+      <div class="meta-row"><div class="dot"></div><p><strong>SDG Alignment:</strong> SDG 6.1 (water), SDG 7.1 (energy), SDG 10 (inequality)</p></div>
+      <div class="meta-row"><div class="dot"></div><p><strong>License:</strong> Open Government Data — free for research &amp; public use</p></div>
+    </div>
+
+    
+    <div class="meta-box">
+      <h3>Key Features Used</h3>
+      <table>
+        <tr><th>Column</th><th>Description</th><th>Type</th></tr>
+        <tr><td>rural_pct</td><td>% rural HH with improved water source</td><td><span class="badge b-key">Key</span></td></tr>
+        <tr><td>urban_pct</td><td>% urban HH with improved water source</td><td><span class="badge b-key">Key</span></td></tr>
+        <tr><td>st_pct / sc_pct</td><td>Coverage for ST/SC social groups</td><td><span class="badge b-key">Key</span></td></tr>
+        <tr><td>cook_rural_pct</td><td>% using clean cooking fuel (rural)</td><td><span class="badge b-key">Key</span></td></tr>
+        <tr><td>equity_gap</td><td>urban_pct − rural_pct</td><td><span class="badge b-derived">Derived</span></td></tr>
+        <tr><td>sdg61_proxy</td><td>SDG 6.1 on-track binary flag</td><td><span class="badge b-derived">Derived</span></td></tr>
+        <tr><td>yoy_change</td><td>Year-on-year coverage change (%)</td><td><span class="badge b-derived">Derived</span></td></tr>
+      </table>
+    </div>
+
+    
+    <div class="highlight-box">
+      <div class="stat"><div class="num">36</div><div class="lbl">States &amp; UTs</div></div>
+      <div class="stat"><div class="num">7</div><div class="lbl">ML Features</div></div>
+      <div class="stat"><div class="num">5</div><div class="lbl">Social Groups</div></div>
+      <div class="stat"><div class="num">64K+</div><div class="lbl">Sample HH</div></div>
+      <div class="stat"><div class="num">2020–21</div><div class="lbl">Survey Year</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>NeerNiti · Edunet Foundation — IBM Cloud Lite</span>
+    <span>Data Source: AI Kosh · MIS 78th Round</span>
+  </div>
+</div>
+<p style="text-align:center;font-size:11px;color:#475569;margin-top:16px;border-top:1px solid #1e293b;padding-top:10px;width:100%;max-width:900px">Made with IBM Bob</p>
+</body>
+</html>

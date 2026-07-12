@@ -1,0 +1,114 @@
+<html lang="en"><head><meta charset="UTF-8" /><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0d1b35;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(86,207,178,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(86,207,178,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.wrap{position:relative;z-index:1;padding:28px 48px;flex:1}
+.tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#56cfb2;margin-bottom:7px}
+.h2{font-size:26px;font-weight:800;margin-bottom:6px}
+.h2 em{color:#56cfb2;font-style:normal}
+.div{width:40px;height:3px;background:#56cfb2;border-radius:2px;margin-bottom:20px}
+.col3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:18px}
+.mcard{border-radius:12px;padding:20px;border:1px solid}
+.mcard .icon{font-size:28px;margin-bottom:10px}
+.mcard .mname{font-size:13px;font-weight:700;margin-bottom:4px}
+.mcard .malgo{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;opacity:.7}
+.mcard .mrows{display:flex;flex-direction:column;gap:6px}
+.mrow{display:flex;justify-content:space-between;align-items:center;font-size:11px}
+.mrow .mk{color:#64748b}
+.mrow .mv{font-weight:700}
+.mcard .mdeploy{margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);font-size:10px;color:#64748b}
+.mc1{background:rgba(86,207,178,.06);border-color:rgba(86,207,178,.3)}
+.mc1 .mname{color:#56cfb2}.mc1 .mv{color:#56cfb2}
+.mc2{background:rgba(96,165,250,.06);border-color:rgba(96,165,250,.3)}
+.mc2 .mname{color:#60a5fa}.mc2 .mv{color:#60a5fa}
+.mc3{background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)}
+.mc3 .mname{color:#a78bfa}.mc3 .mv{color:#a78bfa}
+
+/* TIER VISUAL */
+.tier-row{display:flex;gap:10px;margin-bottom:14px}
+.tier{flex:1;border-radius:8px;padding:10px 12px;text-align:center;border:1px solid}
+.tier .tl{font-size:11px;font-weight:700;margin-bottom:3px}
+.tier .td{font-size:9px;opacity:.7;line-height:1.4}
+.ta{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.3)}.ta .tl{color:#34d399}
+.tb{background:rgba(96,165,250,.08);border-color:rgba(96,165,250,.3)}.tb .tl{color:#60a5fa}
+.tc{background:rgba(251,191,36,.06);border-color:rgba(251,191,36,.25)}.tc .tl{color:#fbbf24}
+.td2{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.3)}.td2 .tl{color:#f87171}
+
+/* FEATURES */
+.feat-box{background:rgba(86,207,178,.04);border:1px solid rgba(86,207,178,.14);border-radius:10px;padding:14px 18px}
+.feat-box .ft{font-size:10px;font-weight:700;color:#56cfb2;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.feat-chips{display:flex;gap:8px;flex-wrap:wrap}
+.fc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;font-size:11px;font-family:monospace;padding:4px 10px;color:#a7f3d0}
+
+.foot{padding:10px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:10px;color:#334155}
+.foot em{color:#56cfb2;font-style:normal;font-weight:700}
+</style></head><body>
+<div class="grid"></div>
+<div class="wrap">
+  <div class="tag">AI / ML Intelligence Layer</div>
+  <div class="h2">Three ML Models + <em>IBM Granite LLM</em></div>
+  <div class="div"></div>
+  <div class="col3">
+    <div class="mcard mc1">
+      <div class="icon">🎯</div>
+      <div class="mname">SDG-6 Risk Classifier</div>
+      <div class="malgo">Gradient Boosted Trees</div>
+      <div class="mrows">
+        <div class="mrow"><span class="mk">Input features</span><span class="mv">8 MIS columns</span></div>
+        <div class="mrow"><span class="mk">Output</span><span class="mv">At Risk / On Track</span></div>
+        <div class="mrow"><span class="mk">F1 Score</span><span class="mv">≈ 88%</span></div>
+        <div class="mrow"><span class="mk">CV Strategy</span><span class="mv">5-Fold Stratified</span></div>
+        <div class="mrow"><span class="mk">n_estimators</span><span class="mv">120</span></div>
+        <div class="mrow"><span class="mk">Learning rate</span><span class="mv">0.08</span></div>
+      </div>
+      <div class="mdeploy">🚀 Deployed: watsonx.ai online scoring endpoint</div>
+    </div>
+    <div class="mcard mc2">
+      <div class="icon">🗂</div>
+      <div class="mname">Equity-Tier Clustering</div>
+      <div class="malgo">K-Means (k=4)</div>
+      <div class="mrows">
+        <div class="mrow"><span class="mk">Algorithm</span><span class="mv">K-Means++</span></div>
+        <div class="mrow"><span class="mk">Clusters</span><span class="mv">4 Equity Tiers</span></div>
+        <div class="mrow"><span class="mk">Silhouette</span><span class="mv">≈ 0.67</span></div>
+        <div class="mrow"><span class="mk">Init runs</span><span class="mv">n_init = 20</span></div>
+        <div class="mrow"><span class="mk">Features</span><span class="mv">total_pct · equity_gap</span></div>
+        <div class="mrow"><span class="mk">Output stored</span><span class="mv">Db2 equity_tier col</span></div>
+      </div>
+      <div class="mdeploy">💾 Cluster labels saved back to Db2</div>
+    </div>
+    <div class="mcard mc3">
+      <div class="icon">📈</div>
+      <div class="mname">Rural Access Regressor</div>
+      <div class="malgo">Ridge Regression</div>
+      <div class="mrows">
+        <div class="mrow"><span class="mk">Predicts</span><span class="mv">Next-year rural %</span></div>
+        <div class="mrow"><span class="mk">MAE</span><span class="mv">≈ 2.1%</span></div>
+        <div class="mrow"><span class="mk">R² Score</span><span class="mv">≈ 0.84</span></div>
+        <div class="mrow"><span class="mk">Regularization</span><span class="mv">alpha = 1.0</span></div>
+        <div class="mrow"><span class="mk">Imputation</span><span class="mv">median strategy</span></div>
+        <div class="mrow"><span class="mk">Scaling</span><span class="mv">StandardScaler</span></div>
+      </div>
+      <div class="mdeploy">🚀 Deployed: watsonx.ai online scoring endpoint</div>
+    </div>
+  </div>
+
+  
+  <div style="font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px">K-Means Equity Tiers — Policy Priority Labels</div>
+  <div class="tier-row">
+    <div class="tier ta"><div class="tl">Tier A</div><div class="td">High Access<br />Low Disparity<br />✅ Good standing</div></div>
+    <div class="tier tb"><div class="tl">Tier B</div><div class="td">High Access<br />High Disparity<br />⚠ Monitor gap</div></div>
+    <div class="tier tc"><div class="tl">Tier C</div><div class="td">Low Access<br />Low Disparity<br />🟠 Scale up</div></div>
+    <div class="tier td2"><div class="tl">Tier D</div><div class="td">Low Access<br />High Disparity<br />🔴 Priority Intervention</div></div>
+  </div>
+
+  
+  <div class="feat-box">
+    <div class="ft">8 Input Features — All from MIS 78th Round</div>
+    <div class="feat-chips">
+      <span class="fc">rural_pct</span><span class="fc">urban_pct</span><span class="fc">equity_gap</span><span class="fc">cook_rural_pct</span><span class="fc">cook_urban_pct</span><span class="fc">migration_rate</span><span class="fc">net_migration_000s</span><span class="fc">yoy_change</span>
+    </div>
+  </div>
+</div>
+<div class="foot"><em>JalDrishti v2.0</em><span>Slide 7 / 14 — ML Models</span></div>
+</body></html>

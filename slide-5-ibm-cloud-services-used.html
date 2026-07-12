@@ -1,0 +1,108 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Slide 5 — IBM Cloud Services</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#0f172a;color:#f1f5f9;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 16px}
+  .slide{width:100%;max-width:900px;background:#1e293b;border-radius:16px;overflow:hidden;border:1px solid #334155}
+  .header{background:linear-gradient(135deg,#1d4ed8,#4f46e5);padding:28px 40px 20px}
+  .slide-num{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#bfdbfe;margin-bottom:8px}
+  .header h1{font-size:26px;font-weight:700;color:#fff}
+  .header p{font-size:14px;color:#bfdbfe;margin-top:6px}
+  .body{padding:28px 40px 32px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+  .card{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:16px 18px;position:relative}
+  .card .num{position:absolute;top:12px;right:14px;font-size:11px;font-weight:700;color:#4f46e5;background:#1e1b4b;padding:2px 7px;border-radius:999px}
+  .card .icon{font-size:22px;margin-bottom:8px}
+  .card h3{font-size:13.5px;font-weight:600;color:#f1f5f9;margin-bottom:4px}
+  .card .role{font-size:12px;color:#94a3b8;margin-bottom:10px;line-height:1.4}
+  .limit{font-size:11px;color:#6ee7b7;background:#064e3b;border-radius:6px;padding:3px 8px;display:inline-block;font-weight:600}
+  .bottom-bar{background:#0c1a30;border:1px solid #1d4ed8;border-radius:10px;padding:16px 24px;display:flex;align-items:center;gap:24px}
+  .bottom-bar .big{font-size:28px;font-weight:700;color:#818cf8}
+  .bottom-bar p{font-size:13px;color:#cbd5e1;line-height:1.5}
+  .bottom-bar p strong{color:#f1f5f9}
+  .footer{border-top:1px solid #334155;padding:12px 40px;display:flex;justify-content:space-between;background:#0f172a}
+  .footer span{font-size:11px;color:#475569}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="slide-num">Slide 5 of 14 · NeerNiti</div>
+    <h1>7 IBM Cloud Lite Services · ₹0 / Month</h1>
+    <p>Entire pipeline runs on always-free IBM Cloud Lite tier — no billing, no expiry</p>
+  </div>
+
+  <div class="body">
+    <div class="grid">
+      <div class="card">
+        <div class="num">01</div>
+        <div class="icon">🗄️</div>
+        <h3>Cloud Object Storage</h3>
+        <div class="role">Data lake for raw CSV, FAISS index, trained ML model binaries</div>
+        <span class="limit">25 GB free</span>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <div class="icon">🛢️</div>
+        <h3>Db2 on Cloud</h3>
+        <div class="role">Structured analytics database — cleaned state-level water metrics</div>
+        <span class="limit">200 MB free</span>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <div class="icon">🔬</div>
+        <h3>Watson Studio</h3>
+        <div class="role">ETL cleaning notebook + ML training (scikit-learn, FAISS)</div>
+        <span class="limit">50 CU / month</span>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <div class="icon">🤖</div>
+        <h3>watsonx.ai + Granite</h3>
+        <div class="role">RAG-powered Q&amp;A via IBM Granite 3.2 8B Instruct LLM</div>
+        <span class="limit">20 deployments</span>
+      </div>
+      <div class="card">
+        <div class="num">05</div>
+        <div class="icon">⚡</div>
+        <h3>Cloud Functions</h3>
+        <div class="role">Serverless REST API: 4 endpoints including getNLQuery (Granite)</div>
+        <span class="limit">5M invocations</span>
+      </div>
+      <div class="card">
+        <div class="num">06</div>
+        <div class="icon">💬</div>
+        <h3>Watson Assistant</h3>
+        <div class="role">JalMitra chatbot — 8 intents, 27 state entities, webhook to CF</div>
+        <span class="limit">10K msgs / month</span>
+      </div>
+      <div class="card" style="grid-column:span 3;display:flex;align-items:center;gap:20px">
+        <div class="num">07</div>
+        <div class="icon" style="font-size:28px">☁️</div>
+        <div>
+          <h3>Cloud Foundry</h3>
+          <div class="role" style="margin-bottom:0">Static dashboard + Node-RED data refresh flows deployed as web apps</div>
+        </div>
+        <span class="limit" style="margin-left:auto;white-space:nowrap">256 MB / app</span>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="big">₹0</div>
+      <p><strong>Total monthly cost during development &amp; demo.</strong><br />
+      Upgrade path is a single config change per service — same code, no re-architecture needed for production scale.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>NeerNiti · Edunet Foundation — IBM Cloud Lite</span>
+    <span>All services verified on IBM Cloud Lite catalog · 2024</span>
+  </div>
+</div>
+<p style="text-align:center;font-size:11px;color:#475569;margin-top:16px;border-top:1px solid #1e293b;padding-top:10px;width:100%;max-width:900px">Made with IBM Bob</p>
+</body>
+</html>

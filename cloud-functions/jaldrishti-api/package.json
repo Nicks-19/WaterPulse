@@ -1,0 +1,25 @@
+{
+  "name": "jaldrishti-api",
+  "version": "2.0.0",
+  "description": "JalDrishti IBM Cloud Functions API — MIS 78th Round Water Analytics with IBM Granite RAG",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "ibmcloud fn action update jaldrishti/getStateStats index.js --kind nodejs:16 --web true --param-file .env.json",
+    "deploy:rag": "ibmcloud fn action update jaldrishti/getNLQuery index.js --kind nodejs:16 --web true --memory 512 --param-file .env.json",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "ibm_db": "^2.8.1",
+    "axios": "^1.6.0"
+  },
+  "notes": {
+    "rag_handler": "rag_handler.js uses watsonx.ai REST APIs directly (no extra npm packages needed — only axios). IBM Granite and Slate embeddings are called via HTTPS.",
+    "new_env_params": [
+      "WATSONX_API_KEY",
+      "WATSONX_URL",
+      "WATSONX_PROJECT_ID",
+      "COS_ENDPOINT",
+      "COS_BUCKET"
+    ]
+  }
+}

@@ -1,9 +1,8 @@
-# 💧 WaterPulse — नीरनीति
+# 💧 WaterPulse
 ## AI-Driven Analytics Platform for Equitable Access to Improved Drinking Water Sources in India
 
 **🚀 Live Demo:** [https://waterpulse.streamlit.app/](https://waterpulse.streamlit.app/)
 
-> **Neer** (नीर) = Water · **Niti** (नीति) = Policy / Wisdom  
 > **Dataset:** MIS 78th Round — Multiple Indicator Survey (AI Kosh / NSSO)  
 > **Platform:** IBM Cloud Lite (Always-Free Tier Only)  
 > **Submission:** Edunet Foundation Problem Statement #38

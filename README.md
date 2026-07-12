@@ -18,42 +18,27 @@
 | Model Deployment + Granite LLM | watsonx.ai (Watson Machine Learning) | 20 deployments |
 | Serverless REST API | IBM Cloud Functions | 5M invocations/month |
 | JalMitra Chatbot | Watson Assistant | 10,000 messages/month |
-| Dashboard + Node-RED | Cloud Foundry | 256 MB / app |
 
 ---
 
 ## Repository Structure
 
 ```
-waterpulse/
-├── notebooks/
-│   ├── 01_etl_cleaning.ipynb          # COS → Db2 ETL, equity_gap/sdg61_proxy derived features
-│   ├── 02_ml_training.ipynb           # GBT classifier + K-Means + Ridge → watsonx.ai deploy
-│   └── 03_rag_pipeline.ipynb          # FAISS index build + Granite 3.2 end-to-end RAG test
+WaterPulse/
+├── frontend/
+│   ├── app.py                         # Streamlit WaterPulse UI — premium dark theme
+│   ├── requirements.txt               # streamlit, requests, plotly, pandas
+│   └── .streamlit/secrets.toml.example
 ├── cloud-functions/waterpulse-api/
 │   ├── index.js                       # 4 REST endpoints: getStateStats/getPrediction/listPriority/getNLQuery
 │   ├── rag_handler.js                 # IAM token cache + FAISS cosine sim + Granite generation
 │   └── package.json                   # v2.0, GRANITE_MODEL_ID env var
-├── frontend/
-│   ├── app.py                         # Streamlit WaterPulse UI — dark theme, 5 tabs
-│   ├── requirements.txt               # streamlit, requests, plotly, pandas
-│   └── .streamlit/secrets.toml.example
-├── dashboard/
-│   ├── index.html                     # Static Chart.js + Leaflet dashboard
-│   ├── manifest.yml                   # CF deployment manifest
-│   └── Staticfile
 ├── watson-assistant/
 │   └── jalmitra_dialog_export.json    # 8 intents, 27 state entities, webhook to Cloud Functions
 ├── node-red/
-│   └── nodered_flow.py                # 3 flows: data refresh, WA bridge, dashboard proxy
+│   └── nodered_flow.py                # 3 flows: data refresh, WA bridge, API proxy
 ├── data/
 │   └── mis_78_sample.csv              # 36 states × rural/urban/social groups
-├── architecture/
-│   └── waterpulse_architecture.svg
-├── report/
-│   └── waterpulse_project_report.md   # Full evaluation-criteria-mapped project report
-├── slides/
-│   └── waterpulse_deck_outline.md     # 14-slide deck outline
 ├── .gitignore
 └── README.md
 ```
@@ -64,8 +49,8 @@ waterpulse/
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/waterpulse.git
-cd waterpulse
+git clone https://github.com/Nicks-19/WaterPulse.git
+cd WaterPulse
 
 # Install Streamlit dependencies
 pip install -r frontend/requirements.txt
@@ -89,7 +74,6 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 ibmcloud login --sso
 ibmcloud plugin install cloud-object-storage
 ibmcloud plugin install cloud-functions
-ibmcloud plugin install cloud-foundry
 ```
 
 From IBM Cloud Catalog (all Lite/free tier):
@@ -98,7 +82,6 @@ From IBM Cloud Catalog (all Lite/free tier):
 - **Watson Studio** → Lite → project: "WaterPulse"
 - **watsonx.ai** → associate with Studio project → note **Project ID**
 - **Watson Assistant** → Lite → assistant: "JalMitra"
-- **Cloud Foundry** → create org and space
 
 ### Step 2 — Upload Dataset to COS
 
@@ -109,26 +92,7 @@ ibmcloud cos object-put \
   --body ./data/mis_78_sample.csv
 ```
 
-### Step 3 — Configure Credentials
-
-In each notebook, replace the placeholder values:
-```python
-COS_API_KEY       = 'YOUR_COS_API_KEY'
-COS_INSTANCE_CRN  = 'YOUR_COS_INSTANCE_CRN'
-DB2_DSN           = 'DATABASE=BLUDB;HOSTNAME=...;PORT=30376;UID=...;PWD=...;SECURITY=SSL;'
-WX_API_KEY        = 'YOUR_WATSONX_API_KEY'
-WX_PROJECT_ID     = 'YOUR_WATSONX_PROJECT_ID'
-WX_URL            = 'https://us-south.ml.cloud.ibm.com'  # or your region
-```
-
-### Step 4 — Run Notebooks in Order (Watson Studio)
-
-1. Upload all 3 notebooks to Watson Studio
-2. Run `01_etl_cleaning.ipynb` → populates `WATERPULSE.STATE_WATER_METRICS` in Db2
-3. Run `02_ml_training.ipynb` → trains 3 models, deploys to watsonx.ai
-4. Run `03_rag_pipeline.ipynb` → builds FAISS index, saves to COS, tests Granite RAG
-
-### Step 5 — Deploy Cloud Functions
+### Step 3 — Deploy Cloud Functions
 
 ```bash
 cd cloud-functions/waterpulse-api
@@ -148,22 +112,11 @@ ibmcloud fn action update waterpulse/api index.js \
 ibmcloud fn action get waterpulse/api --url
 ```
 
-### Step 6 — Import Watson Assistant Skill
+### Step 4 — Import Watson Assistant Skill
 
 1. Watson Assistant → Create assistant "JalMitra"
 2. Add dialog skill → Upload `watson-assistant/jalmitra_dialog_export.json`
 3. Integrations → Set webhook URL to your Cloud Functions web action URL
-
-### Step 7 — Deploy Dashboard to Cloud Foundry
-
-```bash
-cd dashboard
-ibmcloud cf push waterpulse-dashboard \
-  -f manifest.yml -m 64M -i 1 \
-  --buildpack staticfile_buildpack
-```
-
-Dashboard URL: `https://waterpulse-dashboard.mybluemix.net`
 
 ---
 
@@ -192,18 +145,6 @@ Alternative models (if Granite unavailable in your region):
 - **Jharkhand (58%)** and **Bihar (62%)** are CRITICAL risk states for SDG 6.1
 - States with **<60% clean cooking fuel** show systematically **>15% water equity gap**
 - **ST households** across 12 states average **55–60%** — lowest of all social groups
-- WaterPulse reduces analysis time from **2 weeks → 30 seconds**
-
----
-
-## Presentation
-
-The full 14-slide WaterPulse deck covers:
-1. Title | 2. Problem | 3. Dataset | 4. Architecture | 5. IBM Services
-6. RAG Pipeline | 7. ML Models | 8. JalMitra Demo | 9. Impact
-10. Scalability | 11. Commercial Viability | 12. Roadmap | 13. Demo Links | 14. Conclusion
-
-**Submission file:** `WaterPulse_updated.pptx` (export deck with "updated" in filename per professor requirement)
 
 ---
 

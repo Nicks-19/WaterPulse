@@ -279,7 +279,7 @@ def _secret(key, default=""):
 WATSONX_API_KEY    = _secret("WATSONX_API_KEY")
 WATSONX_URL        = _secret("WATSONX_URL", "https://us-south.ml.cloud.ibm.com")
 WATSONX_PROJECT_ID = _secret("WATSONX_PROJECT_ID")
-GRANITE_MODEL_ID   = _secret("GRANITE_MODEL_ID", "ibm/granite-3-2-8b-instruct")
+GRANITE_MODEL_ID   = _secret("GRANITE_MODEL_ID", "ibm/granite-3-8b-instruct")
 
 # Add an AGENT_INSTRUCTIONS section so you can customize the agent behavior easily
 DEFAULT_INSTRUCTIONS = "You are WaterPulse, an AI assistant specialising in India's drinking water access data from MIS 78th Round (2020-21). Answer using only the provided context. Cite specific percentages. Be concise and policy-focused."

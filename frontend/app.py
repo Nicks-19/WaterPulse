@@ -270,7 +270,7 @@ html, body, [class*="css"] {
 
 # ── Safe secrets reader ────────────────────────────────────────────────────────
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)
 
 def _secret(key, default=""):
     try:    return st.secrets[key]
@@ -317,7 +317,7 @@ def get_iam_token(api_key):
 
 def ask_granite(question, context):
     if not WATSONX_API_KEY or not WATSONX_PROJECT_ID:
-        return "⚠️ Enter your API Key and Project ID in the **Config** tab to enable Granite AI."
+        return "⚠️ Enter your API Key and Project ID in your **.env** file to enable Granite AI."
     try:
         token = get_iam_token(WATSONX_API_KEY)
         prompt = f"""<|system|>
@@ -335,6 +335,10 @@ Question: {question}
                   "top_p":0.9,"stop_sequences":["<|user|>","<|system|>"]}},
             headers={"Authorization":f"Bearer {token}","Content-Type":"application/json"},
             timeout=30)
+        
+        if r.status_code != 200:
+            return f"⚠️ IBM Cloud Error ({r.status_code}): {r.text}"
+            
         return r.json()["results"][0]["generated_text"].strip()
     except Exception as e:
         return f"⚠️ Granite error: {e}"
@@ -539,7 +543,7 @@ if current_tab == "jalmitra":
         <div style="font-size:11px;color:#475569">Model: <code style="color:#56cfb2">{GRANITE_MODEL_ID}</code> via IBM watsonx.ai · RAG over MIS 78th Round data</div>
       </div>
       <div style="margin-left:auto">
-        <span style="background:rgba(86,207,178,.1);border:1px solid rgba(86,207,178,.25);color:#56cfb2;font-size:10px;font-weight:700;padding:4px 10px;border-radius:12px">{"● LIVE" if WATSONX_API_KEY and WATSONX_PROJECT_ID else "○ Configure credentials in Config tab"}</span>
+        <span style="background:rgba(86,207,178,.1);border:1px solid rgba(86,207,178,.25);color:#56cfb2;font-size:10px;font-weight:700;padding:4px 10px;border-radius:12px">{"● LIVE" if WATSONX_API_KEY and WATSONX_PROJECT_ID else "○ Configure credentials in .env file"}</span>
       </div>
     </div>
     """, unsafe_allow_html=True)

@@ -269,6 +269,9 @@ html, body, [class*="css"] {
 """, unsafe_allow_html=True)
 
 # ── Safe secrets reader ────────────────────────────────────────────────────────
+from dotenv import load_dotenv
+load_dotenv()
+
 def _secret(key, default=""):
     try:    return st.secrets[key]
     except: return os.getenv(key, default)
@@ -277,6 +280,10 @@ WATSONX_API_KEY    = _secret("WATSONX_API_KEY")
 WATSONX_URL        = _secret("WATSONX_URL", "https://us-south.ml.cloud.ibm.com")
 WATSONX_PROJECT_ID = _secret("WATSONX_PROJECT_ID")
 GRANITE_MODEL_ID   = _secret("GRANITE_MODEL_ID", "ibm/granite-3-2-8b-instruct")
+
+# Add an AGENT_INSTRUCTIONS section so you can customize the agent behavior easily
+DEFAULT_INSTRUCTIONS = "You are WaterPulse, an AI assistant specialising in India's drinking water access data from MIS 78th Round (2020-21). Answer using only the provided context. Cite specific percentages. Be concise and policy-focused."
+AGENT_INSTRUCTIONS = _secret("AGENT_INSTRUCTIONS", DEFAULT_INSTRUCTIONS)
 
 # ── MIS 78th Round Data ────────────────────────────────────────────────────────
 MIS_DATA = pd.DataFrame({
@@ -314,7 +321,7 @@ def ask_granite(question, context):
     try:
         token = get_iam_token(WATSONX_API_KEY)
         prompt = f"""<|system|>
-You are WaterPulse, an AI assistant specialising in India's drinking water access data from MIS 78th Round (2020-21). Answer using only the provided context. Cite specific percentages. Be concise and policy-focused.
+{AGENT_INSTRUCTIONS}
 <|user|>
 Context:
 {context}
